@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @emmaGH1
 - 👀 I’m interested in coding
-- 🌱 I’m currently learning javascript
-- 💞️ I’m looking to collaborate on ...
+- 🌱 I’m currently mastering React
+- 💞️ I’m looking to collaborate on projects and what not...
 - 📫 How to reach me on twitter: @_HEISEMMA ig: @_heisemma1
 
 <!---
