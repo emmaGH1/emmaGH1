@@ -16,5 +16,6 @@ Feel free to reach out for collaboration or discussions! Let's create something 
 
 Connect with me:
 - LinkedIn: (https://www.linkedin.com/in/maduakor-emmanuel-5a141b245/)
+- Twitter: (https://twitter.com/emmadotdev)
 - Email: (mailto:emmanuelmaduakor01@gmail.com)
 
