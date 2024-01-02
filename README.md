@@ -1,6 +1,7 @@
 👋 Welcome to my portfolio!
 
-I'm Emmanuel Maduakor, a Front-End software developer based in Imo, Nigeria, specializing in Next.JS, Typescript, and Tailwind CSS. My passion lies in crafting high-quality code, breathing life into projects, and collaborating with fellow innovators.
+I'm Emmanuel Maduakor, a Front-End software developer based in Imo, Nigeria. 
+My passion lies in crafting high-quality code, breathing life into projects, and collaborating with fellow innovators.
 
 I'm actively mastering Next.JS, Typescript, and Tailwind CSS, while exploring the transformative potential of OpenAI. This journey includes a gradual transition into Full-Stack Development to contribute more comprehensively to project success.
 
