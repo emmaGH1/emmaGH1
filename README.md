@@ -1,21 +1,36 @@
-👋 Welcome to my portfolio!
+### hey, i'm emmanuel maduakor
 
-I'm Emmanuel Maduakor, a Front-End software developer based in Imo, Nigeria. 
-My passion lies in crafting high-quality code, breathing life into projects, and collaborating with fellow innovators.
+front end dev based in imo, nigeria, currently deep in a transition into web3 / blockchain development.
 
-I'm actively mastering Next.JS, Typescript, and Tailwind CSS, while exploring the transformative potential of OpenAI. This journey includes a gradual transition into Full-Stack Development to contribute more comprehensively to project success.
+i build fast, ship under pressure, and learn by doing. most of my recent work comes out of hackathons across ecosystems like flare, okx, base, bot chain, lepton and cleanverse, shipping working prototypes end to end instead of half finished ideas.
 
-🌐 Explore my portfolio: [emmajs.vercel.app](https://emmajs.vercel.app)
+### stack
+
+- next.js / typescript / tailwind css for the frontend
+- solidity + hardhat for contracts
+- node.js / express for backend and agent infra
+- ai tooling (openai, gemini) woven into most builds
+
+### what i'm doing right now
+
+- exploring ai agents, on chain payments and x402 micropayments
+- learning solidity and evm fundamentals from the ground up
+- building small tools that actually work over big ones that don't ship
+
+### portfolio
+
+🌐 WIP
 
 <!---
 emmaGH1/emmaGH1 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
 
-Feel free to reach out for collaboration or discussions! Let's create something exceptional together.
+### let's connect
 
-Connect with me:
-- LinkedIn: (https://www.linkedin.com/in/maduakor-emmanuel-5a141b245/)
-- Twitter: (https://twitter.com/emmadotdev)
-- Email: (mailto:emmanuelmaduakor01@gmail.com)
+- linkedin: [maduakor emmanuel](https://www.linkedin.com/in/maduakor-emmanuel-5a141b245/)
+- twitter/x: [@_heisemma](https://twitter.com/_heisemma)
+- email: [emmanuelmaduakor01@gmail.com](mailto:emmanuelmaduakor01@gmail.com)
+
+open to collaborations, hackathon teams and interesting problems.
 
