@@ -1,8 +1,6 @@
 ### emma
 
-i ship onchain agents and receipts. next.js, solidity, real sponsor rails.
-
-not a tutorial portfolio. the 2026 work:
+i build things.
 
 - **[onred](https://github.com/emmaGH1/onred)** - kane proves the product in a real browser. an agent repairs one file. a receipt seals the proof. [live](https://onred-mu.vercel.app)
 - **[mnemo](https://github.com/emmaGH1/mnemo)** - spoiler-aware community. same comment blurred at episode 30, readable at 50. [live](https://mnemohq.vercel.app)
@@ -18,4 +16,4 @@ stack: next.js + typescript + solidity. agents, x402, onchain receipts.
 - x: [@_heisemma](https://x.com/_heisemma)
 - linkedin: [maduakor emmanuel](https://www.linkedin.com/in/maduakor-emmanuel-5a141b245/)
 
-open to hackathon teams and problems that settle.
+open to teams and problems that settle.
