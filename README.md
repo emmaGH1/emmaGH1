@@ -1,36 +1,21 @@
-### hey, i'm emmanuel maduakor
+### emma
 
-front end dev based in imo, nigeria, currently deep in a transition into web3 / blockchain development.
+i ship onchain agents and receipts. next.js, solidity, real sponsor rails.
 
-i build fast, ship under pressure, and learn by doing. most of my recent work comes out of hackathons across ecosystems like flare, okx, base, bot chain, lepton and cleanverse, shipping working prototypes end to end instead of half finished ideas.
+not a tutorial portfolio. the 2026 work:
 
-### stack
+- **[onred](https://github.com/emmaGH1/onred)** - kane proves the product in a real browser. an agent repairs one file. a receipt seals the proof. [live](https://onred-mu.vercel.app)
+- **[mnemo](https://github.com/emmaGH1/mnemo)** - spoiler-aware community. same comment blurred at episode 30, readable at 50. [live](https://mnemohq.vercel.app)
+- **[redline](https://github.com/emmaGH1/Redline)** - if the papers don't match, the money doesn't move. ucp 600 stamps on x layer. [live](https://redlineonchain.vercel.app)
+- **[flaring](https://github.com/emmaGH1/flaring)** - non-custodial fxrp spend cap. under the cap, payout. over, hold on flare + xrpl.
+- **[bulwark](https://github.com/emmaGH1/bulwark)** - erc-4626 vault. off-chain agent tracks corporate spreads and treasury yields. [live](https://bulwark-sigma.vercel.app)
+- **[mitra](https://github.com/emmaGH1/mitra-bgt)** - autonomous us stock/etf rebalancing from fed and cpi language. [live](https://mitra-bgt.vercel.app)
 
-- next.js / typescript / tailwind css for the frontend
-- solidity + hardhat for contracts
-- node.js / express for backend and agent infra
-- ai tooling (openai, gemini) woven into most builds
+recent circuit: kane, minds, x layer / okx, flare, bot chain, lepton, bitget.
 
-### what i'm doing right now
+stack: next.js + typescript + solidity. agents, x402, onchain receipts.
 
-- exploring ai agents, on chain payments and x402 micropayments
-- learning solidity and evm fundamentals from the ground up
-- building small tools that actually work over big ones that don't ship
-
-### portfolio
-
-🌐 WIP
-
-<!---
-emmaGH1/emmaGH1 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
-
-### let's connect
-
+- x: [@_heisemma](https://x.com/_heisemma)
 - linkedin: [maduakor emmanuel](https://www.linkedin.com/in/maduakor-emmanuel-5a141b245/)
-- twitter/x: [@_heisemma](https://twitter.com/_heisemma)
-- email: [emmanuelmaduakor01@gmail.com](mailto:emmanuelmaduakor01@gmail.com)
 
-open to collaborations, hackathon teams and interesting problems.
-
+open to hackathon teams and problems that settle.
