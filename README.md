@@ -9,7 +9,7 @@ i build things.
 - **[bulwark](https://github.com/emmaGH1/bulwark)** - erc-4626 vault. off-chain agent tracks corporate spreads and treasury yields. [live](https://bulwark-sigma.vercel.app)
 - **[mitra](https://github.com/emmaGH1/mitra-bgt)** - autonomous us stock/etf rebalancing from fed and cpi language. [live](https://mitra-bgt.vercel.app)
 
-recent circuit: kane, minds, x layer / okx, flare, bot chain, lepton, bitget.
+recent circuit: webmcp, kane, minds, x layer / okx, flare, bot chain, lepton, bitget.
 
 stack: next.js + typescript + solidity. agents, x402, onchain receipts.
 
