@@ -189,6 +189,40 @@ For UI work, “build succeeded” is never sufficient evidence. Devin must insp
 For library requirements such as shadcn/ui, Devin must verify actual integration rather than merely matching the style.
 
 
+
+# Invocation contract — what Devin must do first
+
+When this playbook is invoked for a new hackathon, the **first response must not contain implementation work** and must not pretend a project direction has already been chosen.
+
+The first response should contain only the following useful sections:
+
+1. **What this hackathon actually is** — a concise interpretation of the official brief.
+2. **What the judges appear to reward** — based on the published rubric, tracks, sponsor notes, and evidence.
+3. **Hard constraints** — deadline/timezone, required technology, eligibility, submission/video/repository rules.
+4. **Unknowns that matter** — only questions whose answers could materially change the idea or execution.
+5. **Suggested execution mode** — Collaborative, Sprint, or Unattended, with a short reason.
+6. **Next decision** — the single thing the human and agent should decide together next.
+
+Do not generate a final product recommendation in this first response unless the human explicitly asks for immediate recommendations.
+
+Do not create files, install dependencies, scaffold an app, deploy, or write production code during intake.
+
+If the human says “just build something” while important constraints are still unknown, surface the minimum critical assumptions and ask for confirmation. If the human explicitly authorizes autonomous execution despite those assumptions, record them before continuing.
+
+## Fast invocation shorthand
+
+The human may use phrases such as:
+
+- **“hackathon collaborative”** — use Mode A.
+- **“hackathon sprint”** — use Mode B.
+- **“hackathon sleep mode”** — use Mode C after locking the required decisions.
+- **“ideate only”** — stop after collaborative ideation and recommendation.
+- **“judge audit”** — skip implementation and perform the final judge review against current evidence.
+- **“demo pass”** — focus only on the deterministic judge path, recording readiness, and narration plan.
+
+These are workflow hints, not permission to bypass safety, evidence, or submission approval gates.
+
+
 # Phase 0 — Intake and orientation
 
 Before ideation or implementation, build a shared understanding of the hackathon.
