@@ -36,6 +36,159 @@ The goal is not maximum feature count. The goal is the strongest possible submis
 
 ---
 
+
+# Non-negotiable guardrails
+
+These rules override speed, convenience, and agent preference. When a deadline is short or the human is unavailable, **reduce scope, not quality**.
+
+## Product and implementation floor
+
+- Never ship a throwaway single-file `index.html` prototype as the default implementation for a serious web-app submission. Use it only when the event explicitly calls for a static microsite or the human explicitly approves that tradeoff.
+- Prefer a real application structure with routing, components, state boundaries, environment handling, and a production build.
+- For React/Next.js web apps, default to **TypeScript + Tailwind + actual shadcn/ui components** unless the sponsor stack or project requirements make that inappropriate.
+- When shadcn/ui is selected, install and use the real components. Do not merely imitate their appearance with ad-hoc Tailwind markup while claiming shadcn was used.
+- Verify component use by checking imports and generated component files. If a requested component is unavailable or incompatible, say so and choose an intentional alternative.
+- Prefer one polished vertical slice over a broad fake-complete app.
+- Never invent fake metrics, fake users, fake integrations, fake “live” states, fake transactions, or fake AI results to make the UI feel complete.
+- If the build cannot reach the minimum quality floor in the available time, cut features and preserve the strongest real path rather than filling the product with placeholder slop.
+
+## Anti-slop design rules
+
+By default, **do not use** any of the following unless there is a product-specific reason or the human explicitly approves it:
+
+- generic blue/purple gradient backgrounds;
+- neon glows, floating blobs, aurora effects, or decorative mesh gradients;
+- glassmorphism used as a default visual language;
+- pulsing green “online/live/active” dots that do not communicate a real state;
+- decorative status pills such as “AI online”, “agent active”, “system live”, or “powered by AI” unless the status is materially real and useful;
+- giant generic hero copy with no product-specific visual evidence;
+- a page made of endless rounded cards with identical visual weight;
+- random dashboard metrics added only to make the product look substantial;
+- fake terminal windows, fake code blocks, fake activity feeds, or fake logs;
+- excessive shadows, gradients, border glow, or motion for decoration;
+- defaulting to the same familiar AI-template typography and spacing without considering the product's personality;
+- emoji used as product icons when a proper icon or custom mark is appropriate;
+- generic “AI assistant” chat UI unless conversation is genuinely the core product interaction.
+
+Use whitespace, hierarchy, proportion, typography, strong layout, real product states, and deliberate contrast before decoration.
+
+## Typography and visual direction
+
+- Typography must be chosen intentionally for the product. Do not blindly reuse a familiar AI-template font stack.
+- Use at most two type families unless there is a strong reason otherwise.
+- Establish a clear type scale, spacing rhythm, container width, and component density before polishing individual screens.
+- Avoid “everything centered” layouts by default.
+- Avoid every section having the same card treatment.
+- No gradient is the default. Add one only when it has a clear visual role and does not make the product look templated.
+- Before major UI implementation, define a compact visual direction: 3–5 adjectives, palette, typography, spacing/density, component style, and 2–4 relevant references when available.
+- The final interface should look specific to the product, not merely “clean SaaS”.
+
+## Landing-page quality floor
+
+For a user-facing web product, include a purposeful landing/entry experience unless the judge path benefits more from landing directly inside the product.
+
+A landing page should normally include:
+
+- a clear product-specific promise;
+- one obvious primary action;
+- enough visual evidence to understand what the product does;
+- intentional typography and layout;
+- responsive behavior;
+- no filler sections added only to make the page longer.
+
+When time is extremely short, build a **compact, polished landing page**, not a generic template. A strong hero + product proof + CTA is better than six weak sections.
+
+## No comfort-zone defaults
+
+When multiple valid approaches exist, do not automatically choose the most familiar implementation or the statistically most common hackathon idea.
+
+The agent must ask:
+
+- Is this choice being made because it is truly best for the judging criteria?
+- Or because it is the easiest/common pattern the model has seen?
+
+If it is mainly familiarity, explore at least one stronger alternative before committing.
+
+---
+
+# Execution modes
+
+At the start of a hackathon, explicitly identify one of these modes.
+
+## Mode A — Collaborative
+
+Use when the human is available.
+
+- Stop at all major decision gates.
+- Brainstorm together.
+- Show tradeoffs.
+- Wait for approval before idea selection, architecture, major scope changes, and submission.
+
+## Mode B — Sprint
+
+Use when time is short but the human is still intermittently available.
+
+- Keep approval gates for idea, scope, and final submission.
+- Compress discussion, not thinking quality.
+- Use fewer but stronger options.
+- Prefer one complete vertical slice.
+- Avoid optional infrastructure and features.
+- Maintain the same design and implementation quality floor.
+
+## Mode C — Unattended / sleep mode
+
+Use only when the human explicitly says they are leaving and wants the agent to continue.
+
+Before the human leaves, lock:
+
+- selected concept;
+- must-have scope;
+- non-goals;
+- judging priorities;
+- visual direction;
+- permitted integrations;
+- branch to work on;
+- whether deployment is authorized;
+- token/effort budget if relevant;
+- exact stop condition.
+
+While unattended:
+
+- do not change the product concept;
+- do not add major features;
+- do not broaden scope;
+- do not re-architect unless the current path is impossible;
+- do not spend money, submit, contact organizers, or make irreversible external actions;
+- do not compensate for uncertainty with generic filler UI;
+- do not burn tokens in repeated blind retries.
+
+After two materially different failed approaches to the same blocker, stop, document the blocker, and move to the best smaller fallback that preserves the judge story. If no honest fallback exists, stop and leave a clear handoff rather than manufacturing a fake success.
+
+The unattended goal is **a smaller, coherent, reviewable product**, not “something that technically exists by morning.”
+
+---
+
+# Devin harness defaults
+
+Devin should behave like an implementation partner operating inside a controlled harness, not an autonomous product owner.
+
+For each substantial build phase:
+
+1. Read `AGENTS.md`, `docs/JUDGING.md`, `docs/IMPLEMENTATION.md`, and `docs/CURRENT_STATE.md`.
+2. Restate the bounded task and acceptance criteria.
+3. Identify the smallest set of files likely to change.
+4. Implement only that phase.
+5. Run the relevant checks.
+6. Inspect the actual browser/UI when visual behavior matters.
+7. Report evidence, failures, and deviations.
+8. Update `docs/CURRENT_STATE.md`.
+9. Stop instead of silently starting the next major phase unless the current execution mode explicitly allows continuation.
+
+For UI work, “build succeeded” is never sufficient evidence. Devin must inspect the rendered result.
+
+For library requirements such as shadcn/ui, Devin must verify actual integration rather than merely matching the style.
+
+
 # Phase 0 — Intake and orientation
 
 Before ideation or implementation, build a shared understanding of the hackathon.
@@ -119,9 +272,45 @@ Then summarize:
 
 Do not jump to a single recommendation.
 
-Generate a small set of genuinely distinct candidate directions, usually 3–5.
+Use a deliberate **diverge → mutate → converge** process.
 
-Each idea must include:
+## 2A — Diverge widely
+
+Generate a broad first pass of ideas before ranking them. Prefer 6–10 raw directions when time permits, spanning different product archetypes rather than minor variations of one concept.
+
+At least:
+
+- 2 should be safe but strong;
+- 2 should be unusual or contrarian;
+- 2 should explore a different interaction model, user, or business logic;
+- 1 should question the obvious interpretation of the hackathon brief.
+
+During this divergent pass, do not prematurely filter ideas merely because they are unfamiliar. The goal is to escape the model's comfort zone.
+
+Explicitly avoid defaulting to:
+
+- generic AI chat wrappers;
+- “upload document and ask questions” unless uniquely justified;
+- generic productivity dashboards;
+- thin sponsor-API demos with no user value;
+- clones of obvious prior winners;
+- ideas whose only differentiation is “with AI”.
+
+## 2B — Mutate and combine
+
+Take the most interesting raw directions and deliberately transform them:
+
+- combine two ideas;
+- invert the user or workflow;
+- remove the obvious UI;
+- turn a passive tool into an active system;
+- replace chat with a more suitable interaction;
+- ask what would make the judge remember it the next day;
+- ask what could only exist because of the sponsor technology.
+
+Produce 3–5 refined candidates after mutation.
+
+Each candidate must include:
 
 - primary user;
 - painful moment;
@@ -136,11 +325,9 @@ Each idea must include:
 - demo strength;
 - what makes it different from a generic AI wrapper.
 
-Avoid five cosmetic variants of the same idea.
+## 2C — Converge with the human
 
-## Compare ideas explicitly
-
-Score each idea against:
+Score the refined candidates against:
 
 - judging fit;
 - originality;
@@ -153,23 +340,21 @@ Score each idea against:
 - backend/infrastructure burden;
 - ability to finish before deadline.
 
-Do not hide uncertainty. Use rough scores only to support discussion, not pretend precision.
-
-## Human collaboration
+Do not hide uncertainty. Scores support discussion; they do not make the decision automatically.
 
 Ask the human:
 
 - which ideas they feel drawn to;
 - which ones they dislike and why;
-- whether any idea triggers a stronger variation;
-- whether there is a personal insight, workflow, or frustration worth incorporating;
-- whether the chosen direction feels exciting enough to sustain the build.
+- what feels too safe or too familiar;
+- whether any candidate triggers a stronger variation;
+- whether a personal insight, workflow, frustration, or domain advantage should be incorporated;
+- what they would be excited to demo even if it does not win.
 
-The agent should challenge weak reasoning when necessary, but must not override the human silently.
+The agent may recommend a direction after this discussion, but it must explain the tradeoff and wait for explicit human selection.
 
 **STOP GATE:** No architecture or implementation plan until the human explicitly selects or approves a direction.
 
----
 
 # Phase 3 — Refine the chosen concept
 
