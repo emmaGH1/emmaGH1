@@ -85,18 +85,29 @@ Use whitespace, hierarchy, proportion, typography, strong layout, real product s
 
 ## Landing-page quality floor
 
-For a user-facing web product, include a purposeful landing/entry experience unless the judge path benefits more from landing directly inside the product.
+For a user-facing web product, default to a purposeful landing/entry experience unless the judge path is clearly stronger by opening directly inside the product.
 
-A landing page should normally include:
+The landing page is the project's **poster**, not the whole demo. It should make the product memorable when a judge opens the live URL, when the project is shared on X, and when a screenshot is used in a README or submission.
+
+A landing/entry experience should normally include:
 
 - a clear product-specific promise;
 - one obvious primary action;
-- enough visual evidence to understand what the product does;
+- enough visual proof to understand what the product does;
 - intentional typography and layout;
 - responsive behavior;
+- visual continuity with the application itself;
 - no filler sections added only to make the page longer.
 
-When time is extremely short, build a **compact, polished landing page**, not a generic template. A strong hero + product proof + CTA is better than six weak sections.
+Do not default to a generic SaaS sequence such as hero → three feature cards → testimonials → pricing → FAQ → CTA unless those sections genuinely serve the product.
+
+When time is short, build a **compact, polished landing page**, not a generic template. A strong hero + real product proof + CTA is better than six weak sections.
+
+The landing page should pass an **X screenshot test**: the first fold should look intentional and shareable without needing an apology or explanation.
+
+For demos, the landing page is normally an opening shot of roughly 5–15 seconds. Do not spend most of the video scrolling marketing sections. Reach the actual product quickly unless the landing experience itself contains meaningful product interaction.
+
+The landing page and workspace may differ in density, but they must feel like the same product: share typography, palette, radius logic, icon treatment, motion language, and product-specific visual motif.
 
 ## No comfort-zone defaults
 
@@ -436,6 +447,7 @@ For a substantial project, create the smallest durable set of artifacts needed:
 - `docs/JUDGING.md` — scoring rubric, required evidence, and how the product/demo earns points.
 - `docs/ARCHITECTURE.md` — data flow, contracts, integrations, trust boundaries, failure behavior, deployment shape.
 - `docs/DESIGN.md` or `docs/UI_REQUIREMENTS.md` — approved visual direction, references, routes, states, responsive behavior, accessibility.
+- `docs/JUDGE_STORY.md` — what the judge must understand, feel, remember, and see proven; this is the product story, not the recording instructions.
 - `docs/IMPLEMENTATION.md` — phased build order, exit criteria, and dependencies.
 - `docs/CURRENT_STATE.md` — verified current state and one concrete next action.
 - `docs/DEMO.md` — judge story, demo path, seed/reset behavior, recording plan.
@@ -445,6 +457,157 @@ For a substantial project, create the smallest durable set of artifacts needed:
 - `.gitignore` entries for credentials, local notes, generated state, build output, and temporary artifacts.
 
 Keep one source of truth per decision. Do not create documentation for its own sake.
+
+---
+
+
+# Phase 4.5 — Design discovery gate
+
+Do not ask the agent to “make it beautiful” and then let it improvise the entire visual system from statistical defaults.
+
+Before substantial UI implementation, create a design direction that is **specific to this product**.
+
+## 4.5A — Define the design profile
+
+Record:
+
+- product type and platform;
+- primary emotion the interface should create;
+- information density;
+- interaction density;
+- brand personality;
+- trust level;
+- visual energy;
+- what the product must **not** feel like.
+
+Avoid vague descriptors such as “modern”, “clean”, “sleek”, or “premium” unless they are made concrete.
+
+Prefer specific language such as:
+
+- quiet editorial;
+- dense technical instrument;
+- warm consumer productivity;
+- architectural and precise;
+- playful but controlled;
+- broadcast-control-room;
+- calm and reassuring.
+
+## 4.5B — Identify a product-specific visual motif
+
+Answer:
+
+> What visual or interaction idea belongs specifically to this product?
+
+The motif may influence the hero, loading states, empty states, transitions, data presentation, illustrations, or the demo payoff.
+
+Reuse it subtly. Do not invent decorative motifs unrelated to the product.
+
+## 4.5C — Generate reference-search queries
+
+Do not merely tell the human to search for “good SaaS design”.
+
+Generate targeted queries based on the product's design profile.
+
+Each query should have a purpose, for example:
+
+- **structure** — information architecture and page composition;
+- **visual language** — typography, spacing, restraint, borders, palette;
+- **interaction** — transitions, onboarding, navigation, expansion behavior;
+- **signature idea** — an unusual visual or interaction pattern that may inspire an original motif.
+
+Explain what the human should look for in each search.
+
+## 4.5D — Build a reference stack
+
+Prefer several references with distinct jobs rather than one reference that controls everything.
+
+Classify approved references as:
+
+- **Structure reference** — layout, hierarchy, navigation, information density.
+- **Visual-language reference** — typography, spacing, border/radius logic, palette, restraint.
+- **Interaction reference** — motion, transitions, onboarding, component behavior.
+- **Signature reference** — one memorable visual or interaction idea worth adapting.
+
+Do not copy any reference wholesale. Synthesize the useful principles into an original product-specific system.
+
+## 4.5E — Reference-fit test
+
+Before accepting a reference, evaluate whether it actually fits:
+
+- same or compatible platform;
+- similar information density;
+- similar trust requirement;
+- similar interaction model;
+- compatible emotional goal;
+- compatible judge/demo flow.
+
+If a reference is visually attractive but structurally wrong, keep only the aspects that fit. Explicitly state what is being borrowed and what is **not**.
+
+Example:
+
+> Borrowing: asymmetric hero composition, restrained one-accent palette, compact type hierarchy.
+>
+> Not borrowing: navigation, imagery, card treatment.
+
+No “reference laundering”: do not claim inspiration from a reference unless the implementation actually reflects the named design principles.
+
+## 4.5F — Build a design probe before the full UI
+
+Before implementing the entire product, build only:
+
+1. the landing/entry hero or first fold; and
+2. the most important workspace/product screen.
+
+Use realistic content.
+
+Do not build the entire navigation tree or all secondary pages yet.
+
+The human reviews these two surfaces first.
+
+### Design checkpoint
+
+Ask:
+
+> Does this feel like **our product**, and does it feel strong enough to share publicly?
+
+If no, iterate here before propagating the visual system across the codebase.
+
+Only after approval should the design system be locked in docs/DESIGN.md.
+
+## 4.5G — AI-slop lint
+
+Before approving the design probe or a major UI milestone, inspect for:
+
+- unnecessary gradients or gradient text;
+- generic blue/purple AI palette;
+- meaningless status pills;
+- fake “online/live/active” indicators;
+- decorative pulsing green dots;
+- excessive roundness;
+- everything placed inside cards;
+- every icon placed inside a rounded square;
+- giant generic headings with weak product proof;
+- generic three-column feature grids;
+- fabricated testimonials, logos, avatars, or social proof;
+- random dashboard metrics;
+- fake terminals, code windows, activity feeds, or logs;
+- unnecessary chat interfaces;
+- repeated use of Sparkles/Bot/Zap/Brain icons as visual shorthand for AI;
+- generic floating blobs, glow, glassmorphism, or aurora effects;
+- section after section using the same composition;
+- default typography with no product-specific reasoning.
+
+If any appear, justify them from the product story or remove them.
+
+## 4.5H — Shadcn is a primitive library, not the design system
+
+For suitable React/Next.js products, use real shadcn/ui components for reliable primitives.
+
+Do not equate installing shadcn with completing design work.
+
+Shadcn may supply dialogs, sheets, dropdowns, tables, forms, tooltips, commands, and similar primitives. The product still needs an intentional composition, hierarchy, typography, spacing system, visual motif, and interaction language.
+
+**STOP GATE:** Do not propagate the UI across the product until the human approves the design probe or explicitly authorizes autonomous continuation.
 
 ---
 
@@ -556,17 +719,69 @@ Never treat a successful build as proof that the UX works. Inspect the actual in
 
 The demo is part of the product, not an afterthought.
 
-Define the judge path early:
+As soon as the concept is selected, define the **judge story** before deep implementation.
 
-- setup state;
-- starting screen;
-- core action;
-- sponsor/technical proof;
-- visible result;
-- why the result matters;
-- closing state.
+Ask:
+
+> What will the judge literally see in the strongest 60 seconds?
+
+The judge story should usually contain:
+
+- an immediate problem/context cue;
+- one meaningful user action;
+- visible sponsor/technical proof;
+- a clear result;
+- an unmistakable before/after or payoff;
+- one memorable **demo moment** the judge could still describe the next day.
+
+If the team cannot imagine an exciting, legible judge story, treat that as evidence that the product concept may still be weak.
+
+## Real flow vs judge flow
+
+Document both:
+
+- **Real user flow** — how a normal user would use the product.
+- **Judge flow** — the shortest honest path that proves the product's value.
+
+The judge flow may use:
+
+- a seeded demo account;
+- preloaded data;
+- a pre-authenticated session;
+- deterministic starting state;
+- known-good fixtures where honestly labelled;
+- reduced setup.
+
+**Remove setup, not substance.**
+
+Do not remove or fake the core action, sponsor integration, or real result being claimed.
 
 Target a primary path that can usually be demonstrated in roughly 60–90 seconds unless the event requires otherwise.
+
+## Landing-page use in the demo
+
+For most user-facing products, begin with the polished landing/entry experience, but normally move into the real product within roughly 5–15 seconds.
+
+Do not spend the majority of the demo scrolling marketing copy.
+
+The landing page is the opening shot; the product is the proof.
+
+The exception is when the landing experience itself performs meaningful product functionality.
+
+## Camera-aware UI
+
+Design the judge path so it records well at a standard desktop viewport:
+
+- important text is readable;
+- critical information is not hover-only;
+- important actions are not buried in kebab menus;
+- avoid needless scrolling;
+- state changes are visually obvious;
+- loading states do not look dead;
+- success states have a clear visual payoff;
+- the cursor has space to move without covering the main result.
+
+The homepage, product flow, and demo must tell the same product story.
 
 ## Deterministic demo mode
 
@@ -605,6 +820,16 @@ A strong automated demo should:
 - pause on important results;
 - be repeatable after a reset.
 
+Do not optimize the automation for speed. Optimize it for **legibility and performance**.
+
+Use three pacing modes where useful:
+
+- **navigation** — smooth and reasonably quick;
+- **decision** — cursor arrives, pauses briefly, then clicks;
+- **reveal** — cursor moves out of the way and the UI stays still so the judge can absorb the result.
+
+Do not continuously wiggle or move the cursor to appear human. Stillness is natural.
+
 The target should feel like a polished human demo, not a benchmark script.
 
 ---
@@ -615,16 +840,50 @@ Preferred order:
 
 1. finish the real core flow;
 2. lock the judge story;
-3. write the narration;
-4. divide narration into short scenes;
-5. generate ElevenLabs audio only after wording is approved;
-6. run the deterministic demo;
-7. record using Devin/Recordly if available;
-8. align visual beats with narration;
-9. export the final video;
-10. verify duration, resolution, audio, and required format.
+3. identify the single memorable demo moment;
+4. write the narration;
+5. divide narration into short scenes;
+6. generate ElevenLabs audio only after wording is approved;
+7. run the deterministic demo;
+8. record using Devin/Recordly if available;
+9. align visual beats with narration;
+10. export the final video;
+11. verify duration, resolution, audio, and required format.
+
+The narration should explain **meaning**, not mechanically narrate every click.
+
+Avoid:
+
+> “Now I click this button, then I open this page…”
+
+Prefer:
+
+> “Stockup recognizes the merchant and converts part of the reward into ownership.”
+
+while the visual demonstrates the mechanics.
 
 Prefer multiple short narration clips over regenerating a full 60–90 second track for one bad sentence.
+
+## No-dead-air rule
+
+Any wait longer than roughly 1.5–2 seconds should be examined.
+
+If a real integration takes longer:
+
+- use meaningful progress feedback;
+- place useful narration over the wait;
+- show what the system is doing;
+- or restructure the judge flow.
+
+Do not fake latency away if the real result requires it.
+
+## Recording reliability
+
+Before recording the final take, the primary demo path should succeed repeatedly from reset.
+
+Aim for three consecutive successful runs where practical.
+
+Maintain an honest fallback for flaky external dependencies. A fallback may use a known-good seeded state or previously captured valid response only if it is labelled accurately and does not misrepresent a live action as having just occurred.
 
 Example:
 
@@ -638,6 +897,24 @@ Example:
 Do not spend TTS credits during ideation.
 
 ---
+
+
+## Demo readiness score
+
+Before final recording, review the demo across these dimensions:
+
+| Dimension | Question |
+|---|---|
+| Clarity | Can a stranger understand the product quickly? |
+| Speed | Do we reach real value fast enough? |
+| Proof | Is the core feature genuinely demonstrated? |
+| Sponsor | Is the required technology visibly meaningful rather than decorative? |
+| Visual | Is the important result readable on video? |
+| Reliability | Can the flow be reproduced consistently? |
+| Memorability | Is there a distinct demo moment? |
+| Narration | Does audio explain meaning instead of clicks? |
+
+Fix the highest-impact weakness before recording.
 
 # Phase 11 — Review loop
 
