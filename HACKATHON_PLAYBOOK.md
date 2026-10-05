@@ -1,118 +1,1033 @@
-# Hackathon Playbook
+# Hackathon Playbook — October Mobile-First Edition
 
-A repeatable way to turn a hackathon brief into a focused, testable product
-with a clear demo and a repository another person can understand. This is a
-working method, not a promise of winning.
+A collaborative, evidence-driven way to turn a hackathon brief into a focused product, a reliable build, and a strong judge demo.
 
-## 1. Choose a real problem and a sharp slice
+This playbook is designed for a human + agent workflow. The agent must not rush from brief to build. The human stays involved in product decisions, idea selection, tradeoffs, scope, and final submission choices.
 
-- Name one primary user, the painful moment, and what they do today instead.
-- Compare candidate ideas against the actual judging criteria, available
-  skills/data, time left, cost, eligibility, and technical risk.
-- Prefer a product with a visible before/after and one meaningful action over a
-  broad feature list or a generic AI chat wrapper.
-- Write the smallest complete user journey, non-goals, and the riskiest
-  assumption to test first.
+The goal is not maximum feature count. The goal is the strongest possible submission for the actual judging criteria, with a clear story, a real working core, and a repeatable demo.
 
-## 2. Read the event rules before planning the build
+---
 
-Use official event sources to confirm eligibility, deadline and timezone,
-required technologies, permitted reuse/AI assistance, submission fields,
-public-repository requirements, live-demo access, and video constraints.
-Record links and unresolved assumptions. Never guess a deadline or claim an
-entry is eligible without evidence.
+## Core operating rules
 
-Set a realistic internal cutoff that leaves time for a clean build, access
-checks, video capture, and submission. If time or budget is tight, shrink the
-scope rather than hide an incomplete core path.
+1. **Do not start building immediately.**
+   First understand the event, judging criteria, constraints, sponsor requirements, and what information is still missing.
 
-## 3. Build the harness before parallel implementation
+2. **Keep the human in the decision loop.**
+   Important product choices require discussion and explicit approval. Do not silently choose the idea, architecture, scope, visual direction, or submission story.
 
-Inspect the repository first; keep useful conventions and existing work. For
-a substantial project, define the smallest durable set of artifacts:
+3. **Ask for missing context before making irreversible choices.**
+   If the project depends on the user's budget, skill preference, available accounts, prior code, sponsor access, target platform, time left, or demo constraints, ask before proceeding.
 
-- `AGENTS.md` — permanent repo rules, safety boundaries, file ownership, and
-  agent coordination.
-- `docs/PRD.md` — user, problem, workflow, non-goals, and acceptance criteria.
-- `docs/ARCHITECTURE.md` — data flow, contracts, integrations, trust/security
-  boundaries, failure behavior, and deployment shape.
-- `docs/DESIGN.md` or `docs/UI_REQUIREMENTS.md` — approved visual direction,
-  references, routes, states, responsive behavior, and accessibility.
-- A committed roadmap — phases, owners, exit evidence, current status, and one
-  concrete next action.
-- `README.md` — product explanation, setup, judge path, expected result, and
-  checks that were actually run.
-- `hackathon.md` only when required or useful for the event — public,
-  evidence-based progress with secrets and personal data excluded.
-- An ignored `HANDOFF.md` for machine/session state and private coordination;
-  never store credentials there. Anything needed by a fresh clone belongs in
-  committed documentation.
-- `.gitignore` rules for credentials, local notes, worktrees, build output,
-  and generated state.
+4. **Optimize for judging criteria, not novelty alone.**
+   Every major product choice should connect to how judges will score the submission.
 
-Keep one source of truth per decision. Avoid creating every possible document
-for a tiny build; the harness should reduce drift, not become a deliverable.
+5. **Prefer one memorable complete journey over many weak features.**
+   A narrow product with a sharp before/after, clear action, real integration, and polished demo is usually stronger than a broad unfinished product.
 
-## 4. Verify the riskiest integration early
+6. **Never fabricate evidence.**
+   Clearly distinguish implemented, tested, deployed, mocked, seeded, simulated, and planned behavior.
 
-Before building around an external service, read its current official docs and
-prove the smallest useful call, auth path, limits, and failure behavior. Check
-credit and data-retention assumptions. Keep credentials in environment or
-secret configuration, never source, screenshots, logs, or public build notes.
-Do not use an unofficial gateway to impersonate sponsor usage. Do not contact
-real people, send messages, spend money, deploy, or submit without the needed
-authorization.
+7. **The default workflow is mobile-first.**
+   Assume the human may be working primarily from a phone while Devin Cloud handles implementation.
 
-## 5. Make parallel work safe and reviewable
+8. **GitHub is the durable source of truth.**
+   Important decisions, current state, architecture, demo instructions, and judge-facing facts belong in the repository rather than only in chat history.
 
-Create worktrees only after the shared contracts and file boundaries are
-understood. Give each lane a written brief containing:
+---
 
-- goal and required inputs;
-- owned and prohibited files;
-- frozen data/API contracts and how to request a change;
-- acceptance checks and expected screenshots or outputs;
-- branch/checkpoint expectations and the handoff format.
 
-Keep one integration owner for shared contracts, dependencies, routing, and
-merges. Integrate the first working slice early. For visual work, inspect real
-desktop/mobile renders and meaningful empty, loading, failure, and success
-states; compilation is not visual review.
+# Non-negotiable guardrails
 
-## 6. Ship vertical slices with evidence
+These rules override speed, convenience, and agent preference. When a deadline is short or the human is unavailable, **reduce scope, not quality**.
 
-Build the smallest real user path first, then add the distinctive capability.
-Test behavior as it lands. At each meaningful checkpoint:
+## Product and implementation floor
 
-1. Run the relevant typecheck, tests, lint, and production build.
-2. Inspect the actual output and important failure states, not just exit codes.
-3. Review the diff and scan staged content for secrets, personal data, private
-   notes, and generated files.
-4. Make a small local commit when authorized; avoid one giant end-of-hackathon
-   commit.
-5. Update the roadmap and public build log only with newly verified facts.
+- Never ship a throwaway single-file `index.html` prototype as the default implementation for a serious web-app submission. Use it only when the event explicitly calls for a static microsite or the human explicitly approves that tradeoff.
+- Prefer a real application structure with routing, components, state boundaries, environment handling, and a production build.
+- For React/Next.js web apps, default to **TypeScript + Tailwind + actual shadcn/ui components** unless the sponsor stack or project requirements make that inappropriate.
+- When shadcn/ui is selected, install and use the real components. Do not merely imitate their appearance with ad-hoc Tailwind markup while claiming shadcn was used.
+- Verify component use by checking imports and generated component files. If a requested component is unavailable or incompatible, say so and choose an intentional alternative.
+- Prefer one polished vertical slice over a broad fake-complete app.
+- Never invent fake metrics, fake users, fake integrations, fake “live” states, fake transactions, or fake AI results to make the UI feel complete.
+- If the build cannot reach the minimum quality floor in the available time, cut features and preserve the strongest real path rather than filling the product with placeholder slop.
 
-State the difference between implemented, tested, live, and deployed. Label
-fixtures and simulations. Do not imply a listing is confirmed, an email was
-sent, or a feature works unless its evidence supports that exact claim.
+## Anti-slop design rules
 
-## 7. Prepare the judge path while building
+By default, **do not use** any of the following unless there is a product-specific reason or the human explicitly approves it:
 
-The demo should show the product's real core action, the result, and why the
-result matters. Keep a short fallback path if a live integration is flaky, and
-label fallback data accurately. Before submission, verify:
+- generic blue/purple gradient backgrounds;
+- neon glows, floating blobs, aurora effects, or decorative mesh gradients;
+- glassmorphism used as a default visual language;
+- pulsing green “online/live/active” dots that do not communicate a real state;
+- decorative status pills such as “AI online”, “agent active”, “system live”, or “powered by AI” unless the status is materially real and useful;
+- giant generic hero copy with no product-specific visual evidence;
+- a page made of endless rounded cards with identical visual weight;
+- random dashboard metrics added only to make the product look substantial;
+- fake terminal windows, fake code blocks, fake activity feeds, or fake logs;
+- excessive shadows, gradients, border glow, or motion for decoration;
+- defaulting to the same familiar AI-template typography and spacing without considering the product's personality;
+- emoji used as product icons when a proper icon or custom mark is appropriate;
+- generic “AI assistant” chat UI unless conversation is genuinely the core product interaction.
 
-- a cold-start person can run or open the product using the README;
-- public links and access settings work without an invitation where required;
-- the demo follows a short, repeatable path with no unexplained setup;
-- screenshots/video satisfy the event's format and duration;
-- the repository, build log, claims, and live experience agree;
-- accessibility basics and the key error/empty states are checked.
+Use whitespace, hierarchy, proportion, typography, strong layout, real product states, and deliberate contrast before decoration.
 
-## 8. Leave a useful handoff
+## Typography and visual direction
 
-A handoff should say what is done and how it was verified, the current branch
-and commit, files changed, decisions that must not be re-litigated, known
-limitations, and the next concrete action. Keep machine-specific details in
-the ignored handoff; put cross-session product decisions in committed docs.
-Never copy secrets or private message contents into either location.
+- Typography must be chosen intentionally for the product. Do not blindly reuse a familiar AI-template font stack.
+- Use at most two type families unless there is a strong reason otherwise.
+- Establish a clear type scale, spacing rhythm, container width, and component density before polishing individual screens.
+- Avoid “everything centered” layouts by default.
+- Avoid every section having the same card treatment.
+- No gradient is the default. Add one only when it has a clear visual role and does not make the product look templated.
+- Before major UI implementation, define a compact visual direction: 3–5 adjectives, palette, typography, spacing/density, component style, and 2–4 relevant references when available.
+- The final interface should look specific to the product, not merely “clean SaaS”.
+
+## Landing-page quality floor
+
+For a user-facing web product, default to a purposeful landing/entry experience unless the judge path is clearly stronger by opening directly inside the product.
+
+The landing page is the project's **poster**, not the whole demo. It should make the product memorable when a judge opens the live URL, when the project is shared on X, and when a screenshot is used in a README or submission.
+
+A landing/entry experience should normally include:
+
+- a clear product-specific promise;
+- one obvious primary action;
+- enough visual proof to understand what the product does;
+- intentional typography and layout;
+- responsive behavior;
+- visual continuity with the application itself;
+- no filler sections added only to make the page longer.
+
+Do not default to a generic SaaS sequence such as hero → three feature cards → testimonials → pricing → FAQ → CTA unless those sections genuinely serve the product.
+
+When time is short, build a **compact, polished landing page**, not a generic template. A strong hero + real product proof + CTA is better than six weak sections.
+
+The landing page should pass an **X screenshot test**: the first fold should look intentional and shareable without needing an apology or explanation.
+
+For demos, the landing page is normally an opening shot of roughly 5–15 seconds. Do not spend most of the video scrolling marketing sections. Reach the actual product quickly unless the landing experience itself contains meaningful product interaction.
+
+The landing page and workspace may differ in density, but they must feel like the same product: share typography, palette, radius logic, icon treatment, motion language, and product-specific visual motif.
+
+## No comfort-zone defaults
+
+When multiple valid approaches exist, do not automatically choose the most familiar implementation or the statistically most common hackathon idea.
+
+The agent must ask:
+
+- Is this choice being made because it is truly best for the judging criteria?
+- Or because it is the easiest/common pattern the model has seen?
+
+If it is mainly familiarity, explore at least one stronger alternative before committing.
+
+---
+
+# Execution modes
+
+At the start of a hackathon, explicitly identify one of these modes.
+
+## Mode A — Collaborative
+
+Use when the human is available.
+
+- Stop at all major decision gates.
+- Brainstorm together.
+- Show tradeoffs.
+- Wait for approval before idea selection, architecture, major scope changes, and submission.
+
+## Mode B — Sprint
+
+Use when time is short but the human is still intermittently available.
+
+- Keep approval gates for idea, scope, and final submission.
+- Compress discussion, not thinking quality.
+- Use fewer but stronger options.
+- Prefer one complete vertical slice.
+- Avoid optional infrastructure and features.
+- Maintain the same design and implementation quality floor.
+
+## Mode C — Unattended / sleep mode
+
+Use only when the human explicitly says they are leaving and wants the agent to continue.
+
+Before the human leaves, lock:
+
+- selected concept;
+- must-have scope;
+- non-goals;
+- judging priorities;
+- visual direction;
+- permitted integrations;
+- branch to work on;
+- whether deployment is authorized;
+- token/effort budget if relevant;
+- exact stop condition.
+
+While unattended:
+
+- do not change the product concept;
+- do not add major features;
+- do not broaden scope;
+- do not re-architect unless the current path is impossible;
+- do not spend money, submit, contact organizers, or make irreversible external actions;
+- do not compensate for uncertainty with generic filler UI;
+- do not burn tokens in repeated blind retries.
+
+After two materially different failed approaches to the same blocker, stop, document the blocker, and move to the best smaller fallback that preserves the judge story. If no honest fallback exists, stop and leave a clear handoff rather than manufacturing a fake success.
+
+The unattended goal is **a smaller, coherent, reviewable product**, not “something that technically exists by morning.”
+
+---
+
+# Devin harness defaults
+
+Devin should behave like an implementation partner operating inside a controlled harness, not an autonomous product owner.
+
+For each substantial build phase:
+
+1. Read `AGENTS.md`, `docs/JUDGING.md`, `docs/IMPLEMENTATION.md`, and `docs/CURRENT_STATE.md`.
+2. Restate the bounded task and acceptance criteria.
+3. Identify the smallest set of files likely to change.
+4. Implement only that phase.
+5. Run the relevant checks.
+6. Inspect the actual browser/UI when visual behavior matters.
+7. Report evidence, failures, and deviations.
+8. Update `docs/CURRENT_STATE.md`.
+9. Stop instead of silently starting the next major phase unless the current execution mode explicitly allows continuation.
+
+For UI work, “build succeeded” is never sufficient evidence. Devin must inspect the rendered result.
+
+For library requirements such as shadcn/ui, Devin must verify actual integration rather than merely matching the style.
+
+
+
+# Invocation contract — what Devin must do first
+
+When this playbook is invoked for a new hackathon, the **first response must not contain implementation work** and must not pretend a project direction has already been chosen.
+
+The first response should contain only the following useful sections:
+
+1. **What this hackathon actually is** — a concise interpretation of the official brief.
+2. **What the judges appear to reward** — based on the published rubric, tracks, sponsor notes, and evidence.
+3. **Hard constraints** — deadline/timezone, required technology, eligibility, submission/video/repository rules.
+4. **Unknowns that matter** — only questions whose answers could materially change the idea or execution.
+5. **Suggested execution mode** — Collaborative, Sprint, or Unattended, with a short reason.
+6. **Next decision** — the single thing the human and agent should decide together next.
+
+Do not generate a final product recommendation in this first response unless the human explicitly asks for immediate recommendations.
+
+Do not create files, install dependencies, scaffold an app, deploy, or write production code during intake.
+
+If the human says “just build something” while important constraints are still unknown, surface the minimum critical assumptions and ask for confirmation. If the human explicitly authorizes autonomous execution despite those assumptions, record them before continuing.
+
+## Fast invocation shorthand
+
+The human may use phrases such as:
+
+- **“hackathon collaborative”** — use Mode A.
+- **“hackathon sprint”** — use Mode B.
+- **“hackathon sleep mode”** — use Mode C after locking the required decisions.
+- **“ideate only”** — stop after collaborative ideation and recommendation.
+- **“judge audit”** — skip implementation and perform the final judge review against current evidence.
+- **“demo pass”** — focus only on the deterministic judge path, recording readiness, and narration plan.
+
+These are workflow hints, not permission to bypass safety, evidence, or submission approval gates.
+
+
+# Phase 0 — Intake and orientation
+
+Before ideation or implementation, build a shared understanding of the hackathon.
+
+## Agent responsibilities
+
+Read the official event materials and identify:
+
+- event name and organizer;
+- submission deadline and timezone;
+- eligibility requirements;
+- required technologies or sponsor integrations;
+- judging categories and weighting;
+- prize tracks;
+- submission fields;
+- repository/public-access requirements;
+- demo/video limits;
+- permitted reuse, AI assistance, and pre-existing code;
+- deployment or live-access requirements;
+- any sponsor-specific judging notes;
+- anything ambiguous or missing.
+
+Use official sources where possible. Record links and unresolved assumptions.
+
+## Human checkpoint
+
+Before moving on, present a concise **Hackathon Brief** containing:
+
+- what the event is really asking for;
+- what judges are likely rewarding;
+- hard requirements;
+- optional opportunities;
+- biggest traps;
+- time remaining;
+- what information is still needed from the human.
+
+Then ask only the questions that materially affect the project.
+
+Examples:
+
+- How much time can you realistically spend?
+- Are there existing repos/components we should reuse?
+- Do you already have sponsor credentials or API access?
+- Is the goal to maximize winning probability, learn something specific, or ship fast?
+- Are there categories or product areas you do not want to build?
+- Are there limits on budget, paid APIs, or deployment?
+- Does the demo need to work entirely from mobile?
+
+**STOP GATE:** Do not brainstorm final ideas until the human confirms the brief or answers the missing questions.
+
+---
+
+# Phase 1 — Judge analysis before idea generation
+
+Translate the judging rubric into a practical scoring strategy.
+
+For each judging category:
+
+- explain what a strong submission would visibly demonstrate;
+- explain what weak submissions will probably do;
+- identify what evidence the judge must see in the product or demo;
+- estimate what deserves the most build time;
+- identify any category that can be won through presentation, polish, or proof rather than more code.
+
+Create a simple matrix:
+
+| Criterion | Weight | What judges need to see | Product implication | Demo implication |
+|---|---:|---|---|---|
+
+Then summarize:
+
+- the 2–3 highest-value things the project must prove;
+- the easiest ways to lose points;
+- what should **not** consume time.
+
+**STOP GATE:** Human reviews the judge strategy before idea generation.
+
+---
+
+# Phase 2 — Collaborative ideation
+
+Do not jump to a single recommendation.
+
+Use a deliberate **diverge → mutate → converge** process.
+
+## 2A — Diverge widely
+
+Generate a broad first pass of ideas before ranking them. Prefer 6–10 raw directions when time permits, spanning different product archetypes rather than minor variations of one concept.
+
+At least:
+
+- 2 should be safe but strong;
+- 2 should be unusual or contrarian;
+- 2 should explore a different interaction model, user, or business logic;
+- 1 should question the obvious interpretation of the hackathon brief.
+
+During this divergent pass, do not prematurely filter ideas merely because they are unfamiliar. The goal is to escape the model's comfort zone.
+
+Explicitly avoid defaulting to:
+
+- generic AI chat wrappers;
+- “upload document and ask questions” unless uniquely justified;
+- generic productivity dashboards;
+- thin sponsor-API demos with no user value;
+- clones of obvious prior winners;
+- ideas whose only differentiation is “with AI”.
+
+## 2B — Mutate and combine
+
+Take the most interesting raw directions and deliberately transform them:
+
+- combine two ideas;
+- invert the user or workflow;
+- remove the obvious UI;
+- turn a passive tool into an active system;
+- replace chat with a more suitable interaction;
+- ask what would make the judge remember it the next day;
+- ask what could only exist because of the sponsor technology.
+
+Produce 3–5 refined candidates after mutation.
+
+Each candidate must include:
+
+- primary user;
+- painful moment;
+- current workaround;
+- core action;
+- visible before/after;
+- why the sponsor technology matters;
+- why this could score well;
+- biggest technical risk;
+- biggest product risk;
+- likely build time;
+- demo strength;
+- what makes it different from a generic AI wrapper.
+
+## 2C — Converge with the human
+
+Score the refined candidates against:
+
+- judging fit;
+- originality;
+- usefulness;
+- technical feasibility;
+- sponsor integration depth;
+- demo clarity;
+- time-to-first-working-slice;
+- mobile execution difficulty;
+- backend/infrastructure burden;
+- ability to finish before deadline.
+
+Do not hide uncertainty. Scores support discussion; they do not make the decision automatically.
+
+Ask the human:
+
+- which ideas they feel drawn to;
+- which ones they dislike and why;
+- what feels too safe or too familiar;
+- whether any candidate triggers a stronger variation;
+- whether a personal insight, workflow, frustration, or domain advantage should be incorporated;
+- what they would be excited to demo even if it does not win.
+
+The agent may recommend a direction after this discussion, but it must explain the tradeoff and wait for explicit human selection.
+
+**STOP GATE:** No architecture or implementation plan until the human explicitly selects or approves a direction.
+
+
+# Phase 3 — Refine the chosen concept
+
+Once an idea is selected, sharpen it before coding.
+
+Define:
+
+- one primary user;
+- one painful moment;
+- one core promise;
+- one primary user journey;
+- the exact sponsor/required integration role;
+- one memorable demo moment;
+- non-goals;
+- the riskiest assumption;
+- the smallest version that still feels complete.
+
+Write a one-sentence product statement:
+
+> For [user] who struggles with [painful moment], [product] lets them [core action] so they can [meaningful outcome], using [required technology] for [specific role].
+
+Then define:
+
+### Must have
+Only what is required for the judge story to work.
+
+### Nice to have
+Only after the core path is proven.
+
+### Explicitly cut
+Features that sound impressive but dilute the submission.
+
+**STOP GATE:** Human approves the refined scope.
+
+---
+
+# Phase 4 — Build the project harness
+
+Inspect the repository first. Preserve useful conventions and existing work.
+
+For a substantial project, create the smallest durable set of artifacts needed:
+
+- `AGENTS.md` — permanent repo rules, safety boundaries, agent coordination, and file ownership.
+- `docs/PROJECT.md` or `docs/PRD.md` — user, problem, core promise, workflow, non-goals, acceptance criteria.
+- `docs/JUDGING.md` — scoring rubric, required evidence, and how the product/demo earns points.
+- `docs/ARCHITECTURE.md` — data flow, contracts, integrations, trust boundaries, failure behavior, deployment shape.
+- `docs/DESIGN.md` or `docs/UI_REQUIREMENTS.md` — approved visual direction, references, routes, states, responsive behavior, accessibility.
+- `docs/JUDGE_STORY.md` — what the judge must understand, feel, remember, and see proven; this is the product story, not the recording instructions.
+- `docs/IMPLEMENTATION.md` — phased build order, exit criteria, and dependencies.
+- `docs/CURRENT_STATE.md` — verified current state and one concrete next action.
+- `docs/DEMO.md` — judge story, demo path, seed/reset behavior, recording plan.
+- `README.md` — product explanation, setup, judge path, expected result, and checks actually run.
+- `hackathon.md` only if required or useful for the event.
+- An ignored `HANDOFF.md` for machine/session-specific notes only; never store credentials there.
+- `.gitignore` entries for credentials, local notes, generated state, build output, and temporary artifacts.
+
+Keep one source of truth per decision. Do not create documentation for its own sake.
+
+---
+
+
+# Phase 4.5 — Design discovery gate
+
+Do not ask the agent to “make it beautiful” and then let it improvise the entire visual system from statistical defaults.
+
+Before substantial UI implementation, create a design direction that is **specific to this product**.
+
+## 4.5A — Define the design profile
+
+Record:
+
+- product type and platform;
+- primary emotion the interface should create;
+- information density;
+- interaction density;
+- brand personality;
+- trust level;
+- visual energy;
+- what the product must **not** feel like.
+
+Avoid vague descriptors such as “modern”, “clean”, “sleek”, or “premium” unless they are made concrete.
+
+Prefer specific language such as:
+
+- quiet editorial;
+- dense technical instrument;
+- warm consumer productivity;
+- architectural and precise;
+- playful but controlled;
+- broadcast-control-room;
+- calm and reassuring.
+
+## 4.5B — Identify a product-specific visual motif
+
+Answer:
+
+> What visual or interaction idea belongs specifically to this product?
+
+The motif may influence the hero, loading states, empty states, transitions, data presentation, illustrations, or the demo payoff.
+
+Reuse it subtly. Do not invent decorative motifs unrelated to the product.
+
+## 4.5C — Generate reference-search queries
+
+Do not merely tell the human to search for “good SaaS design”.
+
+Generate targeted queries based on the product's design profile.
+
+Each query should have a purpose, for example:
+
+- **structure** — information architecture and page composition;
+- **visual language** — typography, spacing, restraint, borders, palette;
+- **interaction** — transitions, onboarding, navigation, expansion behavior;
+- **signature idea** — an unusual visual or interaction pattern that may inspire an original motif.
+
+Explain what the human should look for in each search.
+
+## 4.5D — Build a reference stack
+
+Prefer several references with distinct jobs rather than one reference that controls everything.
+
+Classify approved references as:
+
+- **Structure reference** — layout, hierarchy, navigation, information density.
+- **Visual-language reference** — typography, spacing, border/radius logic, palette, restraint.
+- **Interaction reference** — motion, transitions, onboarding, component behavior.
+- **Signature reference** — one memorable visual or interaction idea worth adapting.
+
+Do not copy any reference wholesale. Synthesize the useful principles into an original product-specific system.
+
+## 4.5E — Reference-fit test
+
+Before accepting a reference, evaluate whether it actually fits:
+
+- same or compatible platform;
+- similar information density;
+- similar trust requirement;
+- similar interaction model;
+- compatible emotional goal;
+- compatible judge/demo flow.
+
+If a reference is visually attractive but structurally wrong, keep only the aspects that fit. Explicitly state what is being borrowed and what is **not**.
+
+Example:
+
+> Borrowing: asymmetric hero composition, restrained one-accent palette, compact type hierarchy.
+>
+> Not borrowing: navigation, imagery, card treatment.
+
+No “reference laundering”: do not claim inspiration from a reference unless the implementation actually reflects the named design principles.
+
+## 4.5F — Build a design probe before the full UI
+
+Before implementing the entire product, build only:
+
+1. the landing/entry hero or first fold; and
+2. the most important workspace/product screen.
+
+Use realistic content.
+
+Do not build the entire navigation tree or all secondary pages yet.
+
+The human reviews these two surfaces first.
+
+### Design checkpoint
+
+Ask:
+
+> Does this feel like **our product**, and does it feel strong enough to share publicly?
+
+If no, iterate here before propagating the visual system across the codebase.
+
+Only after approval should the design system be locked in docs/DESIGN.md.
+
+## 4.5G — AI-slop lint
+
+Before approving the design probe or a major UI milestone, inspect for:
+
+- unnecessary gradients or gradient text;
+- generic blue/purple AI palette;
+- meaningless status pills;
+- fake “online/live/active” indicators;
+- decorative pulsing green dots;
+- excessive roundness;
+- everything placed inside cards;
+- every icon placed inside a rounded square;
+- giant generic headings with weak product proof;
+- generic three-column feature grids;
+- fabricated testimonials, logos, avatars, or social proof;
+- random dashboard metrics;
+- fake terminals, code windows, activity feeds, or logs;
+- unnecessary chat interfaces;
+- repeated use of Sparkles/Bot/Zap/Brain icons as visual shorthand for AI;
+- generic floating blobs, glow, glassmorphism, or aurora effects;
+- section after section using the same composition;
+- default typography with no product-specific reasoning.
+
+If any appear, justify them from the product story or remove them.
+
+## 4.5H — Shadcn is a primitive library, not the design system
+
+For suitable React/Next.js products, use real shadcn/ui components for reliable primitives.
+
+Do not equate installing shadcn with completing design work.
+
+Shadcn may supply dialogs, sheets, dropdowns, tables, forms, tooltips, commands, and similar primitives. The product still needs an intentional composition, hierarchy, typography, spacing system, visual motif, and interaction language.
+
+**STOP GATE:** Do not propagate the UI across the product until the human approves the design probe or explicitly authorizes autonomous continuation.
+
+---
+
+# Phase 5 — Prove the riskiest thing first
+
+Before broad implementation, test the highest-risk assumption.
+
+Examples:
+
+- sponsor API authentication;
+- wallet connection;
+- webhook flow;
+- model/tool compatibility;
+- data availability;
+- on-chain transaction;
+- browser capability;
+- third-party SDK;
+- background worker;
+- demo automation;
+- deployment requirement.
+
+The proof should be the smallest useful call or end-to-end slice.
+
+Record:
+
+- what was tested;
+- how it was tested;
+- what worked;
+- what failed;
+- limits discovered;
+- fallback plan.
+
+If the riskiest integration fails, revisit scope immediately instead of building around an assumption.
+
+---
+
+# Phase 6 — Implementation planning with human approval
+
+Create a phased implementation plan that favors vertical slices.
+
+A good sequence is:
+
+1. project foundation;
+2. riskiest integration;
+3. smallest complete end-to-end path;
+4. distinctive product capability;
+5. visual polish and responsive behavior;
+6. deployment;
+7. demo automation;
+8. final reliability pass.
+
+For each phase define:
+
+- goal;
+- files/components likely affected;
+- acceptance criteria;
+- tests/checks;
+- visible evidence;
+- dependencies;
+- what must not be changed;
+- exit condition.
+
+Do not create a 40-item wall of tasks if 6–8 phases are easier to reason about.
+
+**STOP GATE:** Human approves the implementation plan before large-scale coding begins.
+
+---
+
+# Phase 7 — Mobile-first execution model
+
+Assume the human is primarily operating from a phone.
+
+## Default tool roles
+
+- **ChatGPT** — everyday planning, research, screenshots, UX critique, submission writing, visual work, implementation prompts.
+- **Claude through Bankr** — selective deep ideation, architecture challenge, difficult debugging, independent review.
+- **Devin Cloud** — primary implementation, repository edits, tests, browser verification, bug fixing, and routine execution.
+- **GitHub** — durable source of truth.
+- **Vercel** — default frontend hosting when appropriate.
+- **Servarica + Coolify** — persistent backend/API/database/worker hosting when needed.
+- **Recordly / Devin recording** — demo capture.
+- **ElevenLabs** — narration only after the script is locked.
+- **Termux** — emergency SSH/admin, not the primary development environment.
+
+The agent should not move work onto the VPS simply because it can. Devin Cloud is the default coding environment; the VPS is production infrastructure.
+
+---
+
+# Phase 8 — Branching, previews, and safe delivery
+
+Do not let agent work directly destabilize the judging URL.
+
+Default flow:
+
+1. work on a feature branch;
+2. run tests/build;
+3. create or use preview deployment;
+4. human inspects the live result;
+5. fix issues;
+6. merge only when approved;
+7. deploy production from `main`;
+8. tag the known-good submission state, e.g. `demo-v1`.
+
+Never treat a successful build as proof that the UX works. Inspect the actual interface and important states.
+
+---
+
+# Phase 9 — Build the demo while building the product
+
+The demo is part of the product, not an afterthought.
+
+As soon as the concept is selected, define the **judge story** before deep implementation.
+
+Ask:
+
+> What will the judge literally see in the strongest 60 seconds?
+
+The judge story should usually contain:
+
+- an immediate problem/context cue;
+- one meaningful user action;
+- visible sponsor/technical proof;
+- a clear result;
+- an unmistakable before/after or payoff;
+- one memorable **demo moment** the judge could still describe the next day.
+
+If the team cannot imagine an exciting, legible judge story, treat that as evidence that the product concept may still be weak.
+
+## Real flow vs judge flow
+
+Document both:
+
+- **Real user flow** — how a normal user would use the product.
+- **Judge flow** — the shortest honest path that proves the product's value.
+
+The judge flow may use:
+
+- a seeded demo account;
+- preloaded data;
+- a pre-authenticated session;
+- deterministic starting state;
+- known-good fixtures where honestly labelled;
+- reduced setup.
+
+**Remove setup, not substance.**
+
+Do not remove or fake the core action, sponsor integration, or real result being claimed.
+
+Target a primary path that can usually be demonstrated in roughly 60–90 seconds unless the event requires otherwise.
+
+## Landing-page use in the demo
+
+For most user-facing products, begin with the polished landing/entry experience, but normally move into the real product within roughly 5–15 seconds.
+
+Do not spend the majority of the demo scrolling marketing copy.
+
+The landing page is the opening shot; the product is the proof.
+
+The exception is when the landing experience itself performs meaningful product functionality.
+
+## Camera-aware UI
+
+Design the judge path so it records well at a standard desktop viewport:
+
+- important text is readable;
+- critical information is not hover-only;
+- important actions are not buried in kebab menus;
+- avoid needless scrolling;
+- state changes are visually obvious;
+- loading states do not look dead;
+- success states have a clear visual payoff;
+- the cursor has space to move without covering the main result.
+
+The homepage, product flow, and demo must tell the same product story.
+
+## Deterministic demo mode
+
+Where appropriate, build:
+
+- a demo account;
+- seed data;
+- reset script;
+- predictable starting state;
+- `demo/run-demo.ts`;
+- `demo/reset-demo.ts`;
+- `demo/timeline.json`.
+
+The demo runner should interact with real application functionality.
+
+It may seed predictable data, but it must not fake:
+
+- sponsor integration success;
+- on-chain transactions;
+- model responses claimed to be live;
+- external actions claimed to have happened;
+- results that the real product cannot produce.
+
+## Automated demo behavior
+
+Prefer a deterministic automated flow when it improves recording quality.
+
+A strong automated demo should:
+
+- move through the real product;
+- wait for actual UI/application state rather than fixed blind sleeps;
+- use natural pacing;
+- allow the screen to breathe before important clicks;
+- show visible cursor movement where practical;
+- type progressively where typing matters;
+- pause on important results;
+- be repeatable after a reset.
+
+Do not optimize the automation for speed. Optimize it for **legibility and performance**.
+
+Use three pacing modes where useful:
+
+- **navigation** — smooth and reasonably quick;
+- **decision** — cursor arrives, pauses briefly, then clicks;
+- **reveal** — cursor moves out of the way and the UI stays still so the judge can absorb the result.
+
+Do not continuously wiggle or move the cursor to appear human. Stillness is natural.
+
+The target should feel like a polished human demo, not a benchmark script.
+
+---
+
+# Phase 10 — Demo recording and narration
+
+Preferred order:
+
+1. finish the real core flow;
+2. lock the judge story;
+3. identify the single memorable demo moment;
+4. write the narration;
+5. divide narration into short scenes;
+6. generate ElevenLabs audio only after wording is approved;
+7. run the deterministic demo;
+8. record using Devin/Recordly if available;
+9. align visual beats with narration;
+10. export the final video;
+11. verify duration, resolution, audio, and required format.
+
+The narration should explain **meaning**, not mechanically narrate every click.
+
+Avoid:
+
+> “Now I click this button, then I open this page…”
+
+Prefer:
+
+> “Stockup recognizes the merchant and converts part of the reward into ownership.”
+
+while the visual demonstrates the mechanics.
+
+Prefer multiple short narration clips over regenerating a full 60–90 second track for one bad sentence.
+
+## No-dead-air rule
+
+Any wait longer than roughly 1.5–2 seconds should be examined.
+
+If a real integration takes longer:
+
+- use meaningful progress feedback;
+- place useful narration over the wait;
+- show what the system is doing;
+- or restructure the judge flow.
+
+Do not fake latency away if the real result requires it.
+
+## Recording reliability
+
+Before recording the final take, the primary demo path should succeed repeatedly from reset.
+
+Aim for three consecutive successful runs where practical.
+
+Maintain an honest fallback for flaky external dependencies. A fallback may use a known-good seeded state or previously captured valid response only if it is labelled accurately and does not misrepresent a live action as having just occurred.
+
+Example:
+
+- `01-intro.mp3`
+- `02-problem.mp3`
+- `03-action.mp3`
+- `04-result.mp3`
+- `05-integration.mp3`
+- `06-closing.mp3`
+
+Do not spend TTS credits during ideation.
+
+---
+
+
+## Demo readiness score
+
+Before final recording, review the demo across these dimensions:
+
+| Dimension | Question |
+|---|---|
+| Clarity | Can a stranger understand the product quickly? |
+| Speed | Do we reach real value fast enough? |
+| Proof | Is the core feature genuinely demonstrated? |
+| Sponsor | Is the required technology visibly meaningful rather than decorative? |
+| Visual | Is the important result readable on video? |
+| Reliability | Can the flow be reproduced consistently? |
+| Memorability | Is there a distinct demo moment? |
+| Narration | Does audio explain meaning instead of clicks? |
+
+Fix the highest-impact weakness before recording.
+
+# Phase 11 — Review loop
+
+For every meaningful implementation cycle:
+
+1. Devin implements a bounded task.
+2. Run relevant typecheck, tests, lint, and production build.
+3. Inspect the real UI/output.
+4. Human reviews the live behavior.
+5. ChatGPT critiques screenshots, flow, copy, and judge clarity.
+6. Use Claude/another model only when a second opinion is valuable.
+7. Devin fixes.
+8. Update `docs/CURRENT_STATE.md`.
+
+For difficult bugs:
+
+- provide the reviewer only the relevant error, files, attempted fixes, and expected behavior where possible;
+- avoid burning API credits by sending an entire repository unless necessary.
+
+---
+
+# Phase 12 — Final judge audit
+
+Before submission, perform two reviews.
+
+## Technical audit
+
+Verify:
+
+- production build passes;
+- critical tests pass;
+- public URLs work;
+- backend is awake;
+- required credentials are configured;
+- cold-start behavior is acceptable;
+- demo account/reset works;
+- repository contains no secrets;
+- README instructions are accurate;
+- sponsor integration is actually demonstrated;
+- claims match evidence.
+
+## Judge audit
+
+Act as a skeptical judge and ask:
+
+- Can I understand the problem in 10 seconds?
+- Is the product meaningfully different?
+- Is the sponsor technology essential or decorative?
+- Does the demo show the strongest feature quickly?
+- Is the before/after obvious?
+- Are we wasting demo time on setup?
+- Does every major judging criterion have visible evidence?
+- What is the easiest reason to reject or forget this submission?
+- What should be cut or emphasized before submission?
+
+Fix the highest-impact problems first.
+
+---
+
+# Phase 13 — Submission approval gate
+
+Before submitting, present the human with a final concise checklist:
+
+- submission title;
+- one-line pitch;
+- description;
+- repository URL;
+- live URL;
+- video URL/file;
+- track/category;
+- required sponsor technologies;
+- known limitations;
+- final claims;
+- submission deadline and timezone.
+
+**STOP GATE:** Never submit, spend money, contact organizers, publish, or make irreversible external actions without the human's explicit approval.
+
+---
+
+# Phase 14 — Handoff and cleanup
+
+After submission, record:
+
+- final branch and commit;
+- production URLs;
+- what was verified;
+- what was simulated/seeded;
+- known limitations;
+- judging deadline if relevant;
+- next action;
+- services that can be stopped later.
+
+Keep temporary machine/session details in ignored handoff notes. Keep durable product decisions in committed documentation.
+
+Stop unnecessary backend containers after judging when practical. Preserve the repository and known-good tag.
+
+---
+
+# Default conversation behavior
+
+When this playbook is invoked for a new hackathon, the agent should begin with:
+
+1. **Understand** — gather and summarize the official brief.
+2. **Ask** — identify missing information that materially affects the project.
+3. **Analyze judges** — turn scoring criteria into product/demo requirements.
+4. **Brainstorm together** — propose multiple directions and discuss them with the human.
+5. **Decide together** — wait for explicit human selection.
+6. **Refine** — sharpen the selected concept and cut scope.
+7. **Plan** — create architecture and phased implementation.
+8. **Approve** — wait for human approval before major implementation.
+9. **Build** — execute in bounded phases with real verification.
+10. **Demo** — build and automate the judge path.
+11. **Audit** — technical + judge review.
+12. **Submit only with approval.**
+
+The agent should never interpret this playbook as permission to rush from a brief directly into implementation.
