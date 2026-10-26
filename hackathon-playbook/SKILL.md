@@ -1,5 +1,5 @@
 ---
-name: hackathon
+name: hackathon-playbook
 description: emmanuel's hackathon playbook. use when starting, planning, building, demoing or submitting a hackathon project, or when he says "hackathon collaborative", "hackathon sprint", "hackathon sleep mode", "ideate only", "demo pass" or "judge audit".
 ---
 
@@ -16,12 +16,16 @@ this file is the only part loaded every session. it holds the rules and tells yo
 | 1. intake + judge analysis | `phases/01-intake-and-judging.md` | new hackathon, or "judge audit" |
 | 2. ideation + scope | `phases/02-ideation-and-scope.md` | after the judge strategy is approved, or "ideate only" |
 | 3. project harness | `phases/03-harness.md` | direction approved, before any code |
-| 4. design | `phases/04-design.md` | before ANY ui work |
-| 5. build, ship, review | `phases/05-build.md` | implementation plan and coding |
+| 4. design + logo | `phases/04-design.md` | before ANY ui work, landing page or logo |
+| 5. build, ship, review | `phases/05-build.md` | implementation plan, coding, parallel lanes |
 | 6. demo | `phases/06-demo.md` | as soon as the concept is picked (judge story), then again for recording, or "demo pass" |
 | 7. audit + submit | `phases/07-submit.md` | final 10% of the time |
 
-always know which phase you're in. say it at the top of each substantial reply: `phase 5 · build`.
+always know which phase you're in. start each substantial reply with a status line: phase, lane (if any), and the **model hint** for the next step:
+
+`phase 5 · build · lane a · next: chatgpt, low`
+
+you can't switch models yourself, so the hint tells the human what to switch to before the next task. if the current model is a poor fit for the next step (e.g. opus about to do a long build round), say so in one line.
 
 ## core rules
 
@@ -78,15 +82,40 @@ these are workflow hints, never permission to skip approval gates.
 
 | tool | job |
 |---|---|
-| **chatgpt** (2 accounts) | bulk coding, playwright demo scripts, routine fixes, submission copy. switch accounts when one hits its limit. |
-| **claude** (opus) | idea critique, architecture review, ui + landing page, hyperframes video composition, narration script, final bug/security review. |
-| **gemini / antigravity** | cheap work: reading docs, scanning the codebase, boilerplate, readme, research. |
+| **chatgpt** (2 accounts) | the main builder: bulk coding, capture scripts, routine fixes, render/ffmpeg errors, submission copy. switch accounts when one hits its limit. |
+| **claude opus** | judgment and taste: idea critique, architecture review, design probe, logo concepts, demo paper edit and look stills, final judge audit. short, high-value turns only. |
+| **claude sonnet** | claude's builder: landing page and ui polish, remotion build and revision rounds. |
+| **gemini / antigravity** | cheap work: reading docs and sponsor apis, scanning the codebase, boilerplate, readme, research. |
 | **pi on the vps, via t3 code** | where all agents run. |
 | **github** | source of truth. |
 | **vercel** | frontend hosting. |
 | **vps + coolify** | backend, db, workers, and demo rendering. |
-| **hyperframes + playwright + ffmpeg** | demo video pipeline (see `phases/06-demo.md`). |
-| **elevenlabs** | final narration only, after the script is locked. hyperframes' local tts is the free draft voice. |
+| **remotion + playwright + ffmpeg** | demo pipeline: product film from real components + live capture (see `phases/06-demo.md`). |
+| **elevenlabs** | final narration only, after the script is locked. a free local tts is the draft voice. |
+
+### model routing (use this for every model hint)
+
+| phase / task | model | effort |
+|---|---|---|
+| intake, reading the brief and sponsor docs | gemini | medium |
+| judge analysis | chatgpt | high |
+| ideation: diverge | chatgpt | high |
+| ideation: critique + converge | claude opus | high (one pass) |
+| scope + implementation plan | chatgpt | high |
+| architecture review | claude opus | high (one pass) |
+| harness docs, boilerplate, scaffolding | gemini or chatgpt | low |
+| riskiest integration proof | chatgpt | medium |
+| core app build | chatgpt | low–medium |
+| hard bug (after 2 failed attempts) | claude opus | high, minimal context |
+| logo concepts + design probe | claude opus | medium |
+| landing page + ui polish | claude sonnet | medium |
+| capture script, reset script | chatgpt | low |
+| demo paper edit + look stills | claude opus | medium |
+| remotion build + revision rounds | claude sonnet | medium |
+| readme, docs, submission copy | gemini, then chatgpt for the final pass | low |
+| judge audit + security review | claude opus | high (one pass) |
+
+rules: high effort only for decisions and hard problems; routine edits go low. opus never does long build loops. when a pool runs low, the hint names the fallback (chatgpt account 2, then gemini).
 
 brainstorming across models: one model drafts, the other critiques **once**, the human decides, and the result goes into `docs/PROJECT.md`. no long back-and-forth debates; they burn both usage pools.
 

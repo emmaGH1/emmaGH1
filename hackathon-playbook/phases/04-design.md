@@ -221,5 +221,41 @@ Shadcn may supply dialogs, sheets, dropdowns, tables, forms, tooltips, commands,
 
 **STOP GATE:** Do not propagate the UI across the product until the human approves the design probe or explicitly authorizes autonomous continuation.
 
+## 4.5I: logo and brand mark
+
+the logo is the first and last frame of the demo, the favicon, the og image and the x post. a random ai mark undoes a good product. it gets a timeboxed pass (30–45 min) **after the visual motif (4.5B) is set and before the design probe (4.5F)**, so the logo, the ui and the video share one system.
+
+**default to a wordmark with one custom detail.** in a hackathon, a well-set wordmark beats an invented symbol almost every time. the detail comes from the product's motif, for example:
+
+- one letter swapped for or cut by a product-specific glyph (a price-tag notch, a timeline tick, a cursor, a node)
+- a ligature or a shared stroke between two letters
+- a cut, a gap or a shifted baseline that echoes what the product does
+- an accent-color mark on exactly one letter or one dot
+
+**process:**
+
+1. **name check:** say the name out loud; check it's not an existing well-known product in the same space.
+2. **typeface:** pick it from the approved design direction, not a default. one family, a weight chosen on purpose, letter-spacing tuned by eye.
+3. **3 concepts, each tied to the motif in one sentence** ("the Q's tail is a price arrow because it adjusts prices"). hand-written svg, not generated images.
+4. **one review sheet:** each concept at 16px (favicon), 64px and 512px, on the light and the dark background, plus one-color black and one-color white. render it to a png and show it.
+5. **human picks one** (or asks for one more round). maximum two rounds.
+6. **export the set:** `logo.svg`, `logo-mark.svg` (just the symbol or monogram, for favicon and avatar), `favicon.ico` + `icon.png`, `apple-touch-icon.png`, `og.png` (1200x630, logo + one-line promise on the app's background). record the svg colors and font in `docs/DESIGN.md`.
+7. **demo version:** the logo's parts are separate svg paths, so the video's logo reveal can animate the custom detail last (the "click" moment).
+
+**logo slop to avoid:** sparkles, brains, robot heads, generic hexagons or cubes, chat bubbles, lightning bolts, gradient blobs, a letter in a rounded square with a gradient, globe-and-orbit marks, a symbol that needs an explanation, more than two colors, anything unreadable at 16px.
+
+**model:** claude (opus) proposes the concepts and the review sheet. a cheaper model does the export set.
+
+**STOP GATE:** the human picks the logo from the review sheet before it's used anywhere.
+
+## 4.5J: references on a phone (fast path)
+
+the human gathers references from a phone, often under time pressure. make it cheap:
+
+- generate the targeted search queries from 4.5C, each with a ready link: godly.website, land-book.com, mobbin.com, savee.it, dribbble, or "site:x.com" searches. a reference can be a screenshot or a url pasted into chat.
+- one strong reference with a clear note ("take the type scale and the asymmetric hero; not the colors") is enough to start.
+- **if the human has no time for references:** don't improvise one look silently. render the first fold of the landing page in **3 distinct directions** as screenshots (different type, layout and palette, all within the design profile), and let the human pick one. picking from three costs a minute; fixing a generic page costs hours.
+- in sleep mode the visual direction must already be locked (see the core file). no direction locked means no landing page work while unattended.
+
 ---
 
