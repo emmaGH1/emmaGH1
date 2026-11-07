@@ -21,6 +21,9 @@ hackathon-playbook/
     05-build.md
     06-demo.md                     ← new pipeline
     07-submit.md
+  novelty/
+    decks.md                       ← crafts, people, twists, unfair inputs. add cards anytime
+    draw.py                        ← random seed draws for the novelty pass (phase 2)
 ```
 
 ## step 1: swap it in on the vps

@@ -99,6 +99,7 @@ these are workflow hints, never permission to skip approval gates.
 |---|---|---|
 | intake, reading the brief and sponsor docs | gemini | medium |
 | judge analysis | chatgpt | high |
+| ideation: novelty pass (ban list, primitives, draw, collision search) | gemini | medium |
 | ideation: diverge | chatgpt | high |
 | ideation: critique + converge | claude opus | high (one pass) |
 | scope + implementation plan | chatgpt | high |
