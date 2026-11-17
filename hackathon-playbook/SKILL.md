@@ -1,146 +1,99 @@
 ---
 name: hackathon-playbook
-description: emmanuel's hackathon playbook. use when starting, planning, building, demoing or submitting a hackathon project, or when he says "hackathon collaborative", "hackathon sprint", "hackathon sleep mode", "ideate only", "demo pass" or "judge audit".
+description: emmanuel's hackathon playbook (v3). use when deciding whether to enter a hackathon, picking an idea, building, demoing, submitting or reviewing a result, or when the human says "triage", "idea", "checkpoint", "demo", "submit", "postmortem" or "away mode".
 ---
 
-# hackathon playbook: core
+# hackathon playbook v3
 
-a human + agent workflow for turning a hackathon brief into a focused product, a reliable build and a demo that wins.
+one goal: **place.** not "ship something", not "be original". every rule below comes from a real result. the evidence is in `cases.md`; read it once per new event.
 
-this file is the only part loaded every session. it holds the rules and tells you which phase file to open. **open a phase file only when you reach that phase.** don't read them all up front; that wastes usage.
+this file is the only one loaded every session. open a step file only when you reach that step.
 
-## phase map
+## the six laws
 
-| phase | open this file | when |
+1. **enter fewer, start early.** at most 2 live events, and only one of them longer than a week. a long event is won by long work: 7 of the 8 losses in `cases.md` were built in the last 1–3 days of a window that ran from 36 hours to 8 weeks. the winners were there from week one.
+2. **the rules are a list of ways to be disqualified.** read them before any idea. every hard requirement becomes a checkbox in `docs/BRIEF.md` that must be ticked, with evidence, before submitting. (coby had no store listing at an event that screens on store urls.)
+3. **build what the sponsor wants more of.** the sponsor's own product does the main job, live. if you can delete it and the app still works, the idea is wrong. the co-host, special awards and tie-breaks tell you exactly what they want. (stockup used rabby at an event co-hosted by binance web3 wallet whose tie-break was depth of web3 wallet api use.)
+4. **a real person with real stakes, using real data.** someone who loses money, health, time or standing without it, and would use it next week, reached where they already are (telegram, whatsapp, the sponsor's app). no fictional neighbourhoods, no seeded communities as the core proof.
+5. **make it real instead of explaining why it isn't.** mainnet or production api over testnet, a live model call over cached output. the readme opens with proof; limits go at the bottom. never fabricate anything.
+6. **less process, more product.** roux, the one win, was coding in its first hour with no ideation docs. 4 project docs, 3 human decisions, one builder at a time.
+
+## the clock
+
+the clock runs from the moment you start building to the deadline. step 1 decides whether that start is early enough to enter at all.
+
+| mark | must be true | if not |
 |---|---|---|
-| 1. intake + judge analysis | `phases/01-intake-and-judging.md` | new hackathon, or "judge audit" |
-| 2. ideation + scope | `phases/02-ideation-and-scope.md` | after the judge strategy is approved, or "ideate only" |
-| 3. project harness | `phases/03-harness.md` | direction approved, before any code |
-| 4. design + logo | `phases/04-design.md` | before ANY ui work, landing page or logo |
-| 5. build, ship, review | `phases/05-build.md` | implementation plan, coding, parallel lanes |
-| 6. demo | `phases/06-demo.md` | as soon as the concept is picked (judge story), then again for recording, or "demo pass" |
-| 7. audit + submit | `phases/07-submit.md` | final 10% of the time |
+| hour 1 | brief written, disqualifiers listed, repo deployed to a live url (a blank page is fine), riskiest sponsor call tried | nothing else starts until this is done |
+| 10% | idea picked, `docs/PLAN.md` written | take the top-scoring idea and move |
+| 25% | the sponsor's product does the main job, live, with real data | change the idea now, or shrink it to what the sponsor tech can really do |
+| 50% | the one journey works end to end on the live url, checked at phone width | cut everything outside that journey |
+| 75% | **feature freeze.** demo recorded, readme written | stop building; finish the submission |
+| 90% | submitted | — |
+| 100% | buffer for broken deploys, upload failures and timezones | — |
 
-always know which phase you're in. start each substantial reply with a status line: phase, lane (if any), and the **model hint** for the next step:
+at each mark the agent reports green or red, the evidence, and the next action. the human only steps in on red.
 
-`phase 5 · build · lane a · next: chatgpt, low`
+start every substantial reply with a status line:
 
-you can't switch models yourself, so the hint tells the human what to switch to before the next task. if the current model is a poor fit for the next step (e.g. opus about to do a long build round), say so in one line.
+`step 3 · build · clock 48% · 25% mark green · next: chatgpt, low`
 
-## core rules
+## the three human decisions
 
-1. **don't start building immediately.** understand the event, judging, constraints and sponsor requirements first.
-2. **the human decides.** idea, architecture, scope, visual direction and submission need explicit approval.
-3. **ask before irreversible choices** that depend on budget, accounts, time left, existing code or sponsor access.
-4. **optimize for the judging criteria**, not novelty or feature count.
-5. **one memorable complete journey beats many weak features.**
-6. **never fabricate evidence.** label everything as implemented, tested, deployed, mocked, seeded, simulated or planned.
-7. **the human works from a phone.** coding runs on the vps through pi in t3 code. keep replies scannable on a small screen.
-8. **github is the source of truth.** decisions, state and judge-facing facts live in the repo, not in chat.
-9. **the demo is part of the product.** define the judge story right after the idea is picked, not at the end.
+1. **enter or skip** (end of step 1)
+2. **which idea** (end of step 2)
+3. **submit** (end of step 6)
 
-## quality floor (never trade this for speed)
+everything else the agent decides and reports. never spend money, submit, publish, post or contact organizers without the human's explicit yes.
+
+## steps
+
+| step | file | when |
+|---|---|---|
+| 1 · triage | `steps/1-triage.md` | a new event link, or "triage" |
+| 2 · idea | `steps/2-idea.md` | after "enter", or "idea" |
+| 3 · build | `steps/3-build.md` | idea picked; also "checkpoint" |
+| 4 · design | `steps/4-design.md` | before any ui beyond the bare journey |
+| 5 · demo | `steps/5-demo.md` | script at the 50% mark, record at 75%, or "demo" |
+| 6 · submit | `steps/6-submit.md` | the 75% mark, or "submit" |
+| 7 · postmortem | `steps/7-postmortem.md` | results are out, or "postmortem" |
+
+## project files (only these)
+
+- `AGENTS.md`: repo rules, folder ownership, what not to touch, the locked visual direction
+- `docs/BRIEF.md`: event facts, disqualifier checklist, judging weights, what the sponsor wants (`templates/BRIEF.md`)
+- `docs/PLAN.md`: the idea, the person, the one journey, the cut list, clock dates (`templates/PLAN.md`)
+- `docs/STATE.md`: what works now (verified), the proof list, friction log, next action (`templates/STATE.md`)
+- `README.md`: judge-facing (`templates/README.md`)
+
+no other docs unless the event asks for them (a dx report, a disclosure). strip had 17 files in `docs/` and the ai feature it was judged on still didn't run.
+
+## quality floor
 
 - reduce scope, not quality.
-- no throwaway single-file `index.html` for a real web app unless the event asks for it or the human approves.
-- next.js apps default to typescript + tailwind + real shadcn/ui components. verify imports; never fake the look.
+- next.js apps: typescript + tailwind + real shadcn/ui components. verify imports; never fake the look.
+- "build passed" is never proof a ui works. look at the rendered page at phone width.
 - never invent metrics, users, integrations, "live" states, transactions or ai results.
-- "build passed" is never proof a ui works. look at the rendered page.
-- full design rules live in `phases/04-design.md`. read it before any ui work.
+- the human works from a phone; coding runs on the vps through pi in t3 code. keep replies scannable on a small screen.
+- github is the source of truth: decisions and state live in the repo, not in chat.
 
-## execution modes
+## tools
 
-pick one at the start and say which.
+| job | tool |
+|---|---|
+| reading rules, sponsor docs, research | gemini / antigravity |
+| bulk coding, scripts, routine fixes, copy | chatgpt (2 accounts; switch when one runs out) |
+| idea critique, architecture review, hard bug after 2 failed tries, final judge audit | claude opus, short turns only |
+| landing page, ui polish, video build | claude sonnet |
+| where agents run | pi on the vps, via t3 code |
+| hosting | vercel (frontend), vps + coolify (backend, workers) |
 
-- **a · collaborative:** human is around. stop at every decision gate.
-- **b · sprint:** short on time. keep gates for idea, scope and submission only. fewer, stronger options. one vertical slice.
-- **c · sleep mode:** only when the human says they're leaving. before they go, lock: concept, must-haves, non-goals, judging priorities, visual direction, allowed integrations, branch, whether deploy is allowed, and the stop condition. while unattended: no new features, no concept or scope changes, no spending, no submitting, no blind retries. after two materially different failed approaches to one blocker, stop, document it in `docs/CURRENT_STATE.md`, and take the best honest smaller fallback.
+one model drafts, another critiques **once**, the human decides. fresh session per task; read `docs/STATE.md` instead of re-deriving context. high effort only for decisions and hard bugs.
 
-## first response on a new hackathon
+## away mode
 
-no code, no files, no installs. reply with only:
-
-1. what this hackathon actually is
-2. what the judges appear to reward
-3. hard constraints (deadline + timezone, required tech, eligibility, video/repo rules)
-4. unknowns that matter
-5. suggested execution mode
-6. the next decision
-
-then open `phases/01-intake-and-judging.md`.
+when the human says they're leaving: lock the idea, the journey, the cut list, allowed integrations, whether deploying is allowed, and the stop condition in `docs/STATE.md`. while away: no new features, no idea change, no spending, no submitting, no blind retries. after two materially different failed approaches to one blocker, stop, write it down, and take the best honest smaller fallback.
 
 ## shorthand
 
-- **"hackathon collaborative" / "sprint" / "sleep mode"**: set the mode.
-- **"ideate only"**: stop after ideation and a recommendation.
-- **"demo pass"**: open `phases/06-demo.md` and work only on the judge path, recording and narration.
-- **"judge audit"**: open `phases/07-submit.md` and review against current evidence.
-
-these are workflow hints, never permission to skip approval gates.
-
-## tools and model roles
-
-| tool | job |
-|---|---|
-| **chatgpt** (2 accounts) | the main builder: bulk coding, capture scripts, routine fixes, render/ffmpeg errors, submission copy. switch accounts when one hits its limit. |
-| **claude opus** | judgment and taste: idea critique, architecture review, design probe, logo concepts, demo paper edit and look stills, final judge audit. short, high-value turns only. |
-| **claude sonnet** | claude's builder: landing page and ui polish, remotion build and revision rounds. |
-| **gemini / antigravity** | cheap work: reading docs and sponsor apis, scanning the codebase, boilerplate, readme, research. |
-| **pi on the vps, via t3 code** | where all agents run. |
-| **github** | source of truth. |
-| **vercel** | frontend hosting. |
-| **vps + coolify** | backend, db, workers, and demo rendering. |
-| **remotion + playwright + ffmpeg** | demo pipeline: product film from real components + live capture (see `phases/06-demo.md`). |
-| **elevenlabs** | final narration only, after the script is locked. a free local tts is the draft voice. |
-
-### model routing (use this for every model hint)
-
-| phase / task | model | effort |
-|---|---|---|
-| intake, reading the brief and sponsor docs | gemini | medium |
-| judge analysis | chatgpt | high |
-| ideation: novelty pass (ban list, primitives, draw, collision search) | gemini | medium |
-| ideation: diverge | chatgpt | high |
-| ideation: critique + converge | claude opus | high (one pass) |
-| scope + implementation plan | chatgpt | high |
-| architecture review | claude opus | high (one pass) |
-| harness docs, boilerplate, scaffolding | gemini or chatgpt | low |
-| riskiest integration proof | chatgpt | medium |
-| core app build | chatgpt | low–medium |
-| hard bug (after 2 failed attempts) | claude opus | high, minimal context |
-| logo concepts + design probe | claude opus | medium |
-| landing page + ui polish | claude sonnet | medium |
-| capture script, reset script | chatgpt | low |
-| demo paper edit + look stills | claude opus | medium |
-| remotion build + revision rounds | claude sonnet | medium |
-| readme, docs, submission copy | gemini, then chatgpt for the final pass | low |
-| judge audit + security review | claude opus | high (one pass) |
-
-rules: high effort only for decisions and hard problems; routine edits go low. opus never does long build loops. when a pool runs low, the hint names the fallback (chatgpt account 2, then gemini).
-
-brainstorming across models: one model drafts, the other critiques **once**, the human decides, and the result goes into `docs/PROJECT.md`. no long back-and-forth debates; they burn both usage pools.
-
-## usage budget rules
-
-- fresh session per task. long sessions are the main drain.
-- read `docs/CURRENT_STATE.md` instead of re-deriving context.
-- point the agent at specific files; don't scan the whole repo.
-- low/medium reasoning for routine edits. high reasoning or opus only for design, architecture and hard bugs.
-- for a reviewer: send the error, the relevant files and what was tried, not the repo.
-- no tts credits during ideation.
-
-## the build loop (every substantial task)
-
-1. read `AGENTS.md`, `docs/JUDGING.md`, `docs/CURRENT_STATE.md`.
-2. restate the task and the acceptance criteria.
-3. name the smallest set of files likely to change.
-4. implement only that.
-5. run typecheck, lint, tests and build.
-6. look at the real ui when visuals matter.
-7. report evidence, failures and deviations.
-8. update `docs/CURRENT_STATE.md` and commit.
-9. stop. don't silently start the next phase unless the mode allows it.
-
-## default order
-
-understand → ask → analyze judges → brainstorm together → decide together → refine → define the judge story → plan → approve → build → demo → audit → submit only with approval.
+`triage <link>` · `idea` · `checkpoint` (report the clock mark) · `demo` · `submit` · `postmortem` · `away mode`

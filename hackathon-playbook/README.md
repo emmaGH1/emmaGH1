@@ -1,80 +1,65 @@
-# hackathon playbook v2: what to do
+# hackathon playbook v3: read this first
+
+## why v3
+
+v2 was a careful process: 7 phases, about 10 stop gates, a random-card novelty pass, four ai tools and a six-gate remotion film pipeline. it produced 1 win in 40+ events, and that one win (roux) came from a project built **without** it.
+
+in 8 losses compared side by side with what won (`cases.md`), the losses weren't about effort or talent:
+
+- **7 of 8 were built in the last 1–3 days** of windows that ran up to 8 weeks
+- **the sponsor's core product wasn't doing the main job**: strip's ai was blocked, normandy never paired the wallet, stockup used rabby at a binance web3 wallet event
+- **fiction as the proof**: a fictional neighbourhood, seeded comments, fixture travel plans
+- **low stakes**: a release-notes comic lost to a medicaid work-hours tool at the same event
+- **a missed disqualifier**: coby was never on a store at an event that screens on store urls
+
+v3 is built to stop each of those.
 
 ## what changed
 
-same playbook, same rules. it's restructured, not replaced:
+| v2 | v3 |
+|---|---|
+| intake and judge analysis, then ideation | **triage first: enter or skip**, with a score, hard skips and a cap of 2 live events |
+| random cards; novelty gate "however well it fits the rubric" | **sponsor-first ideas**: 5 ideas from 5 angles, scored on sponsor, stakes, next-week use, real data, plainness and buildability |
+| about 10 stop gates | **3 human decisions**: enter, which idea, submit |
+| phases with no time limits | **a clock**: hour 1 · 10% · 25% · 50% · 75% freeze · 90% submitted |
+| about 12 harness docs | **4 docs**: brief, plan, state, readme |
+| a remotion film by default | **a recording that proves it works** by default; the film only with a day to spare |
+| honesty tables first | **proof first**, limits at the bottom |
+| no review of results | **step 7 postmortem** plus `results.md`; a lesson that repeats changes the rules |
 
-- **`SKILL.md`** is the core (~150 lines). it's the only file loaded every session: rules, quality floor, modes, tool roles, a model routing table, usage rules and a phase map. every substantial reply starts with a status line like `phase 5 · build · lane a · next: chatgpt, low`, so you always know which model and effort to switch to.
-- **`phases/`** holds your original detailed text, split by phase. the agent opens a phase file only when it reaches that phase, so you stop paying usage for 1,000 lines on every session.
-- **`phases/06-demo.md`** is new: a full demo pipeline that runs on the vps: a product film made in remotion from your real components, plus a live playwright capture as proof. it works in approval gates (paper edit → look stills → rough cut → polish → render) so you never pay for a full rebuild.
-- tool roles are updated for t3 code + pi, chatgpt x2, claude and antigravity. devin, bankr, recordly and termux are gone.
+kept from v2: the anti-slop design rules (shortened), the logo rules, the build loop, the never-fabricate rule, away mode (was sleep mode), model roles, and the playwright capture script (now `templates/run-demo.ts`).
+
+removed: the novelty decks and `draw.py`, parallel lanes before the 25% mark, the design-reference stack, and the per-phase model routing table. all of it is still in git history.
 
 ```
 hackathon-playbook/
-  SKILL.md                         ← core, always loaded
-  README.md                        ← this file (for you, not the agent)
-  phases/
-    01-intake-and-judging.md
-    02-ideation-and-scope.md
-    03-harness.md
-    04-design.md                   ← anti-slop + design discovery
-    05-build.md
-    06-demo.md                     ← new pipeline
-    07-submit.md
-  novelty/
-    decks.md                       ← crafts, people, twists, unfair inputs. add cards anytime
-    draw.py                        ← random seed draws for the novelty pass (phase 2)
+  SKILL.md          ← core, always loaded: six laws, the clock, 3 decisions
+  README.md         ← this file (for you, not the agent)
+  cases.md          ← the evidence: the win, 8 losses, what serial winners do
+  results.md        ← one row per event, filled in after results
+  steps/
+    1-triage.md  2-idea.md  3-build.md  4-design.md
+    5-demo.md  6-submit.md  7-postmortem.md
+  templates/
+    BRIEF.md  PLAN.md  STATE.md  README.md  run-demo.ts
 ```
 
-## step 1: swap it in on the vps
+## install on the vps
 
-1. **remove the old one** from wherever pi currently loads it (its skills folder, or a line in a global `AGENTS.md` pointing at `HACKATHON_PLAYBOOK.md`). the agent must not load both.
-2. **copy this whole `hackathon-playbook/` folder** into pi's skills directory, usually `~/.pi/agent/skills/hackathon-playbook/`. if that path doesn't exist on your install, ask pi "where do you load skills from?" and put it there.
-3. **start a fresh pi session** and invoke it the same way you did before: `/hackathon-playbook` (the skill keeps the same name), then `hackathon sprint`. it should reply with the 6-part intake and say which phase it's in. if it starts coding, the old playbook is still loaded somewhere.
+1. delete the old `hackathon-playbook/` from pi's skills folder (usually `~/.pi/agent/skills/`) so v2 can't load.
+2. copy this folder there.
+3. start a fresh pi session: `/hackathon-playbook`, then `triage <event link>`. it should come back with a score and an enter/skip verdict, not ideas. if it starts ideating or coding, v2 is still loaded somewhere.
 
-## step 2: update github
+## how to use it
 
-in `emmaGH1/emmaGH1`, delete `HACKATHON_PLAYBOOK.md` and commit this `hackathon-playbook/` folder in its place. git history keeps the old version if you ever want it.
+- `triage <link>`: enter or skip
+- `idea`: 5 ideas, scored, 3 finalists
+- `checkpoint`: where are we on the clock, green or red
+- `demo`: script or record
+- `submit`: disqualifier check, readme, judge audit, checklist
+- `postmortem`: compare with the winners, add a row to `results.md`
+- `away mode`: lock everything before you step away
 
-## step 3: tonight's test run (about 1 to 1.5 hours)
+## the habit that matters most
 
-goal: a 20-second video of a real app you've built, with a title, one zoom and an end card. if this works, the pipeline works.
-
-1. **setup** (once): run "step 0: vps setup" from `phases/06-demo.md`. if `free -h` shows under 4gb, add swap first.
-2. **pick an app** that's already running (any deployed project works).
-3. **add 3 `data-demo` attributes**: the entry button, the main action and the result.
-4. **capture**: copy the `run-demo.ts` template from `06-demo.md` into `demo/`, swap in your 3 selectors and url, then run `npx tsx demo/run-demo.ts`. check that `demo/out/` has `capture.webm`, `timeline.json` and screenshots.
-5. **compose**: in `demo/`, create the remotion project (`npx create-video@latest video`), then ask claude on **sonnet**:
-   > using the remotion skills, build a 20s 1080p video: 3s title card with the app name, the capture from the `core-action` mark to the `result` mark inside a browser frame, a slow zoom into `shots/result.png` with a 3-word callout, then a 3s end card with the url. match the app's fonts and colors.
-6. **render**: `npx remotion render <composition-id> out/test.mp4`, download it to your phone and watch it.
-
-if a step breaks, fix it tonight. that's the point of testing before the hackathon, not during.
-
-## who does what in the demo
-
-| task | model |
-|---|---|
-| `run-demo.ts` and `reset-demo.ts` | chatgpt |
-| judge story, narration script | claude (opus) |
-| paper edit + look stills | claude (opus) |
-| remotion build + revision rounds | claude (sonnet) |
-| fixing render errors, ffmpeg tweaks | chatgpt |
-| final review: watch it as a judge | you (+ claude for one critique pass) |
-
-## how to invoke
-
-same as before: `/hackathon-playbook`, then a mode or shorthand:
-
-
-- `hackathon collaborative` / `hackathon sprint` / `hackathon sleep mode`
-- `ideate only`
-- `demo pass`: jump straight to the demo phase
-- `judge audit`: final review before submitting
-
-## parallel lanes
-
-on multi-day hackathons, the build runs in up to 3 lanes (core app, design, demo), each in its own t3 code thread and git branch. the agent proposes the lanes, folder ownership and branches when the build phase starts, and waits for your yes. start each lane's thread with:
-
-> /hackathon-playbook lane a: read AGENTS.md and the lane a section of docs/CURRENT_STATE.md, then continue.
-
-with under ~24 hours left, run one lane plus a short design pass.
+pick **one** upcoming event that's at least two weeks long. triage it on day 1, have the sponsor's core working live by the 25% mark, and work on it daily. that's how kanmani, incorpr and animr were built.

@@ -9,7 +9,7 @@ i build things.
 - **[bulwark](https://github.com/emmaGH1/bulwark)** - erc-4626 vault. off-chain agent tracks corporate spreads and treasury yields. [live](https://bulwark-sigma.vercel.app)
 - **[mitra](https://github.com/emmaGH1/mitra-bgt)** - autonomous us stock/etf rebalancing from fed and cpi language. [live](https://mitra-bgt.vercel.app)
 
-- **[hackathon playbook](hackathon-playbook/README.md)** - a practical harness for product scope, agent handoffs, verified checkpoints, and judge-ready demos.
+- **[hackathon playbook](hackathon-playbook/README.md)** - triage, sponsor-first ideas, a build clock and post-mortems, rebuilt from comparing every loss with what won.
 
 recent circuit: webmcp, kane, minds, x layer / okx, flare, bot chain, lepton, bitget.
 
