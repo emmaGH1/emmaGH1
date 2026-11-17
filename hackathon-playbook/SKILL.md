@@ -1,6 +1,6 @@
 ---
 name: hackathon-playbook
-description: emmanuel's hackathon playbook (v3). use when deciding whether to enter a hackathon, picking an idea, building, demoing, submitting or reviewing a result, or when the human says "triage", "idea", "checkpoint", "demo", "submit", "postmortem" or "away mode".
+description: emmanuel's hackathon playbook (v3). use when deciding whether to enter a hackathon, picking an idea, building, demoing, submitting or reviewing a result, or when the human says "triage", "idea", "checkpoint", "demo", "submit", "postmortem", "away mode" or "seed:".
 ---
 
 # hackathon playbook v3
@@ -111,6 +111,11 @@ one model drafts, another critiques **once**, the human decides. fresh session p
 
 when the human says they're leaving: lock the idea, the journey, the cut list, allowed integrations, whether deploying is allowed, and the stop condition in `docs/STATE.md`. while away: no new features, no idea change, no spending, no submitting, no blind retries. after two materially different failed approaches to one blocker, stop, write it down, and take the best honest smaller fallback.
 
+## between events
+
+- **`seed: <what happened>`**: append a row to `seeds.md` (date, who, what they lost, where). no ideation, no reply beyond "saved".
+- **`lane.md`** holds the lane and the lane log; **`templates/core/`** holds the reusable parts (guard, evidence, receipts, telegram). after each event, copy improvements back and add a lane-log line.
+
 ## shorthand
 
-`triage <link>` · `idea` · `checkpoint` (report the clock mark) · `demo` · `submit` · `postmortem` · `away mode`
+`triage <link>` · `idea` · `checkpoint` (report the clock mark) · `demo` · `submit` · `postmortem` · `away mode` · `seed: <…>`

@@ -6,6 +6,7 @@
 
 - repo with `AGENTS.md` (the event spec, from `templates/AGENTS.md`, north star filled in from the picked idea), `docs/BRIEF.md`, `docs/PLAN.md`, `docs/STATE.md`
 - copy `templates/pi/stay-on-course.ts` to `.pi/extensions/` and trust the project in pi
+- in the lane: copy `templates/core/` to `src/core/`; the sponsor's sdk goes in an adapter next to it, never inside core
 - **install the sponsor's own agent tooling**: their official skills (`.agents/skills/`), mcp server (`.mcp.json`), `llms.txt` or docs. verify every address, endpoint and sdk version live and write it in `AGENTS.md` with the date: "verified · do not guess".
 - scaffold and deploy a live url (vercel). a page with the name on it is enough.
 - **the hard part, for real:** the riskiest sponsor call, live: one auth, one transaction, one api response. with money, set a test budget and make every test return it (jenny: $8 budget, $1 in and out of aave). save the raw output in `evidence/`.

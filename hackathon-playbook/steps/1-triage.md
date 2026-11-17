@@ -41,7 +41,7 @@ how well the event suits you. time and how many events you're in are not part of
 |---|---|
 | paid prize slots | 5+ → 2 · 2–4 → 1 · 1 → 0 |
 | the sponsor's core product is reachable in hour 1 (keys, sdk, faucet, access approval) | 2 · partly → 1 · no → 0 |
-| you have an edge: domain (geology and mining, nigerian markets and cash habits, crypto communities, webtoon creators, pidgin) or reusable code | 1 |
+| you have an edge: the lane (`lane.md`) and its core fit, a seed fits, or domain knowledge (geology and mining, nigerian markets and cash habits, crypto communities, webtoon creators, pidgin) | 1 |
 | the judging rewards a working product over a pitch (demo, completeness, sponsor use weigh more than slides) | 1 |
 
 **4–6 strong fit · 2–3 workable · 0–1 weak.**

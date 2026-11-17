@@ -42,6 +42,8 @@ hackathon-playbook/
   README.md         ← this file (for you, not the agent)
   cases.md          ← the evidence: the win, 8 losses, what serial winners do
   results.md        ← one row per event, filled in after results
+  seeds.md          ← real moments you notice; ideas start here (`seed: …` from your phone)
+  lane.md           ← the lane, and what each event added to the core
   steps/
     1-triage.md  2-idea.md  3-build.md  4-design.md
     5-demo.md  6-submit.md  7-postmortem.md
@@ -49,6 +51,7 @@ hackathon-playbook/
     AGENTS.md  BRIEF.md  PLAN.md  STATE.md
     README.md  JUDGES.md  check-live.mjs  run-demo.ts
     pi/stay-on-course.ts   ← pi extension: keeps the build agent on the plan
+    core/                  ← reusable parts: guard.ts, evidence.ts, telegram.ts
 ```
 
 ## install on the vps
@@ -67,6 +70,7 @@ hackathon-playbook/
 - `submit`: disqualifier check, readme, judge audit, checklist
 - `postmortem`: compare with the winners, add a row to `results.md`
 - `away mode`: lock everything before you step away
+- `seed: <what happened>`: save a real moment to `seeds.md`, any day
 
 ## the habit that matters most
 
