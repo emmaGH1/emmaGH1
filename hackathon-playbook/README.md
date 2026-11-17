@@ -18,7 +18,7 @@ v3 is built to stop each of those.
 
 | v2 | v3 |
 |---|---|
-| intake and judge analysis, then ideation | **triage first: enter or skip**, with a score, hard skips and a cap of 2 live events |
+| intake and judge analysis, then ideation | **triage first**: a fit score, disqualifiers, and a plan sized to the time left. it never tells you to skip for time unless you ask |
 | random cards; novelty gate "however well it fits the rubric" | **sponsor-first ideas**: 5 ideas from 5 angles, scored on sponsor, stakes, next-week use, real data, plainness and buildability |
 | about 10 stop gates | **3 human decisions**: enter, which idea, submit |
 | phases with no time limits | **a clock**: hour 1 · 10% · 25% · 50% · 75% freeze · 90% submitted |
@@ -48,11 +48,11 @@ hackathon-playbook/
 
 1. delete the old `hackathon-playbook/` from pi's skills folder (usually `~/.pi/agent/skills/`) so v2 can't load.
 2. copy this folder there.
-3. start a fresh pi session: `/hackathon-playbook`, then `triage <event link>`. it should come back with a score and an enter/skip verdict, not ideas. if it starts ideating or coding, v2 is still loaded somewhere.
+3. start a fresh pi session: `/hackathon-playbook`, then `triage <event link>`. it should come back with a fit score, the time left and a plan size, not ideas. if it starts ideating or coding, v2 is still loaded somewhere.
 
 ## how to use it
 
-- `triage <link>`: enter or skip
+- `triage <link>`: fit score, time left, plan size; you decide enter or skip
 - `idea`: 5 ideas, scored, 3 finalists
 - `checkpoint`: where are we on the clock, green or red
 - `demo`: script or record

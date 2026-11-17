@@ -4,7 +4,7 @@
 
 - event page: <url> · rules: <url>
 - window: <start> → <deadline> (source timezone) = <deadline in WAT>
-- days we'll really build: <n> of <window length>
+- time left at triage: <days/hours> of <window length> · plan size: full / one journey / late start
 - judges: <who>
 - paid prize slots: <count, and how they break down>
 
@@ -34,4 +34,4 @@ special awards / bounties we qualify for:
 
 ## triage score
 
-<n>/9 · verdict: enter / skip · biggest risk:
+fit <n>/6 · biggest risk: · clashes: · human's decision: enter / skip

@@ -1,6 +1,8 @@
-# step 1: triage (enter or skip)
+# step 1: triage (fit and plan)
 
 > output: `docs/BRIEF.md` (from `templates/BRIEF.md`) and a phone-sized verdict. no ideas yet.
+
+**time is never a reason to recommend skipping.** triage reports the time left and fits the plan to it. the agent gives a time-based opinion on skipping only when the human asks for one ("should i skip?").
 
 read the official sources: the event page, the rules/terms, faq, judging, prizes, sponsor docs, and last edition's winners if there was one. gemini does the reading.
 
@@ -31,39 +33,46 @@ write one sentence. find it in the co-host, the special awards, the tie-break, t
 
 if enoch, tim, mrnetwork or jenny (or anyone with a long winning record) usually enter this kind of event, expect: mainnet or production use, a 2-minute video, a "judges start here" path with no wallet, real numbers in the first paragraph, and a deep sponsor integration. the plan must beat that, not match it.
 
-## 4. the score
+## 4. the fit score
+
+how well the event suits you. time and how many events you're in are not part of it.
 
 | question | points |
 |---|---|
-| days you will really build vs the window: at least half of it, and at least 5 days for anything over a week | 2 · else 0 |
 | paid prize slots | 5+ → 2 · 2–4 → 1 · 1 → 0 |
 | the sponsor's core product is reachable in hour 1 (keys, sdk, faucet, access approval) | 2 · partly → 1 · no → 0 |
 | you have an edge: domain (geology and mining, nigerian markets and cash habits, crypto communities, webtoon creators, pidgin) or reusable code | 1 |
-| events you're already in | none → 2 · one → 1 |
+| the judging rewards a working product over a pitch (demo, completeness, sponsor use weigh more than slides) | 1 |
 
-**hard skips** (any one): you can't meet a disqualifier (no store account, no mainnet funds, no api access), you're already in 2 events, or you can't start until the final 25% of a multi-week window.
+**4–6 strong fit · 2–3 workable · 0–1 weak.**
 
-**enter at 6 or more.**
+**hard stops** (only these): a disqualifier you can't meet at all, such as no store account, no mainnet funds, no api access or ineligible region. say so plainly; the human still decides.
 
-## 5. deadline clashes
+## 5. time left and clashes
 
-clashes are normal. the fix is to stop every deadline landing in the same crunch, not to enter everything thinly.
+report the time; don't judge it. the clock marks are percentages, so they shrink with the window. what changes is the size of the plan:
+
+| time left | the plan |
+|---|---|
+| more than 2 weeks | the full plan; work daily from week one, so the last week is polish |
+| 3 days to 2 weeks | one journey, no lanes, demo rung 2 |
+| under 3 days | late-start mode: the sponsor's core call in hour 1, one journey, no landing page beyond a header, demo rung 1–2, freeze at 75% no matter what |
+
+**clashes:**
 
 - **keep a calendar** in `results.md` → "upcoming": every event you're in or considering, with its window and deadline in WAT.
-- **long events get the early weeks.** start a multi-week event in week one and put a little work in daily, so its last week is polishing, not building. then a sprint can sit beside it without both getting 2 days.
-- **two deadlines within 3 days of each other:** the higher triage score gets the full clock. the other is entered only if its 50% mark (the one journey working end to end) is already green before the crunch starts. otherwise skip it.
-- **never three.** a third overlapping event is a hard skip, however good the prize. september had 7 projects in 17 days and won only the one that got 4 focused days.
-- **a skipped event isn't a loss.** a thin entry costs time and teaches nothing; a skipped one costs nothing.
+- **long events get the early weeks**, so their last week is polish and a sprint can sit beside them.
+- **two deadlines within 3 days of each other:** the higher fit score gets the full clock; the other gets the late-start plan. report which gets what; the human can swap them.
+- the evidence for all this is in `cases.md`: 7 of 8 losses were built in 1–3 days. the agent mentions it once when the time is short, as a fact, not a verdict.
 
 ## 6. the verdict (one screen)
 
-- **enter / skip**, score, and the single biggest risk
-- deadline in WAT and the days you'll actually build
-- the disqualifier list
+- fit score and the single biggest risk
+- deadline in WAT, time left, and which plan size from §5 applies
+- clashes with anything in the upcoming calendar
+- the disqualifier list, and any hard stop
 - what the sponsor wants, in one sentence
 - the bar to beat
 - next: step 2
-
-on a skip, say what would change it (e.g. "enter only if you drop event x").
 
 **STOP:** the human says enter or skip.

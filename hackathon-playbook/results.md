@@ -2,7 +2,7 @@
 
 ## upcoming (check for clashes at every triage)
 
-| event | window | deadline (WAT) | triage score | status (considering / entered / skipped) |
+| event | window | deadline (WAT) | fit score | status (considering / entered / skipped) |
 |---|---|---|---|---|
 | | | | | |
 
