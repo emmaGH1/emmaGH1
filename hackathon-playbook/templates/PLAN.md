@@ -32,3 +32,13 @@ for <person> who <loses what>, <name> lets them <action> in <place>, using <spon
 | 75% | | freeze, demo recorded, readme written |
 | 90% | | submitted |
 | deadline | | |
+
+## ideas dropped (and why; goes into `BUILDLOG.md`)
+
+-
+
+## build prompts (2–4 staged runs, each ends with its checks)
+
+1. backend and the sponsor calls → check-live passes
+2. the journey's screens → looked at, at phone width
+3. judge path, `/llms.txt`, how-it-works → typecheck, build, check-live

@@ -2,12 +2,15 @@
 
 > the marks are in `SKILL.md`. this file is how to hit them.
 
-## hour 1 (what roux did)
+## hour 1 (roux, plus what serial winners do)
 
-- repo with `AGENTS.md`, `docs/BRIEF.md`, `docs/PLAN.md`, `docs/STATE.md`
+- repo with `AGENTS.md` (the event spec, from `templates/AGENTS.md`), `docs/BRIEF.md`, `docs/PLAN.md`, `docs/STATE.md`
+- **install the sponsor's own agent tooling**: their official skills (`.agents/skills/`), mcp server (`.mcp.json`), `llms.txt` or docs. verify every address, endpoint and sdk version live and write it in `AGENTS.md` with the date: "verified · do not guess".
 - scaffold and deploy a live url (vercel). a page with the name on it is enough.
-- try the riskiest sponsor call for real: one auth, one transaction, one api response. write the result in `docs/STATE.md`.
-- start the **friction log** in `docs/STATE.md`: every confusing doc, broken endpoint or missing feature, with the time. it becomes the dx report in step 6.
+- **the hard part, for real:** the riskiest sponsor call, live: one auth, one transaction, one api response. with money, set a test budget and make every test return it (jenny: $8 budget, $1 in and out of aave). save the raw output in `evidence/`.
+- create `scripts/check-live.mjs` (`templates/check-live.mjs`) with that first claim in it. every later claim gets a line.
+- start the **friction log** in `docs/STATE.md`: every confusing doc, broken endpoint or surprising sdk behaviour, with the time and how you saw it (live read, test, fork). it becomes `SPONSOR_NOTES.md` in step 6.
+- write the build as 2–4 staged prompts at the end of `docs/PLAN.md` (backend, frontend, checks), so each agent run is long and self-checking (mrnetwork's `/kickoff`, `/verify-onchain`).
 
 ## to 25%: the sponsor's core is live
 
@@ -25,11 +28,12 @@ end to end on the live url, checked by looking at the rendered page at phone wid
 
 in this order:
 
-1. **more real proof:** more real transactions, a real dataset, real runs (kanmani read all 10,418 agents in monad's registry; incorpr logged 75 mainnet transactions)
-2. error and empty states along the journey
-3. design pass (step 4)
-4. the judge path: a first look with no login and no wallet
-5. freeze
+1. **more real proof:** more real transactions, a real dataset, real runs (kanmani read all 10,418 agents in monad's registry; incorpr logged 75 mainnet transactions). each one goes in `evidence/`, `JUDGES.md` and `check-live`.
+2. **more of the sponsor:** a second or third sponsor primitive, used for real, where the rubric or tie-break rewards depth
+3. error and empty states along the journey
+4. design pass (step 4)
+5. the judge path: a first look with no login and no wallet
+6. freeze
 
 ## the build loop (every task)
 
@@ -53,8 +57,9 @@ one branch per lane, folder ownership written in `AGENTS.md`, shared files (`pac
 ## proof
 
 - use mainnet or production when the event allows it and the cost is small. a handful of real transactions beats a perfect simulation.
-- keep the proof list in `docs/STATE.md`: links to transactions, api runs, live sessions, test counts. the readme is built from it.
+- every claim lives in three places: raw output in `evidence/` (dated json, tx hashes, screenshots), a row in `JUDGES.md` (claim → code → test → command), and a line in `check-live`. the readme is built from `JUDGES.md`.
 - a labelled fallback is fine for a flaky dependency, never for the core action.
+- found a real bug in the sponsor's sdk or docs? draft an issue or a small upstream pull request for the human to send. a fix the sponsor merges during the event is the strongest sponsor signal there is (jenny's trueup).
 
 ## when stuck
 

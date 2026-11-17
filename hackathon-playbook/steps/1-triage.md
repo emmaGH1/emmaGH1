@@ -63,7 +63,7 @@ report the time; don't judge it. the clock marks are percentages, so they shrink
 - **keep a calendar** in `results.md` → "upcoming": every event you're in or considering, with its window and deadline in WAT.
 - **long events get the early weeks**, so their last week is polish and a sprint can sit beside them.
 - **two deadlines within 3 days of each other:** the higher fit score gets the full clock; the other gets the late-start plan. report which gets what; the human can swap them.
-- the evidence for all this is in `cases.md`: 7 of 8 losses were built in 1–3 days. the agent mentions it once when the time is short, as a fact, not a verdict.
+- short builds are normal: serial winners also build in 2–5 days and overlap events (`cases.md`). with little time, spend it on the hard part, live, and on evidence, not on breadth.
 
 ## 6. the verdict (one screen)
 

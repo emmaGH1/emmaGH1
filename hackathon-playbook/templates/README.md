@@ -14,6 +14,8 @@
 
 ## judges start here
 
+every claim with its code, test and command: [JUDGES.md](JUDGES.md) · check the live claims yourself: `node scripts/check-live.mjs`
+
 90 seconds, no login, no wallet:
 
 1. open <url> → <what you'll see>

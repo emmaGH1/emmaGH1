@@ -6,11 +6,13 @@ v2 was a careful process: 7 phases, about 10 stop gates, a random-card novelty p
 
 in 8 losses compared side by side with what won (`cases.md`), the losses weren't about effort or talent:
 
-- **7 of 8 were built in the last 1–3 days** of windows that ran up to 8 weeks
 - **the sponsor's core product wasn't doing the main job**: strip's ai was blocked, normandy never paired the wallet, stockup used rabby at a binance web3 wallet event
 - **fiction as the proof**: a fictional neighbourhood, seeded comments, fixture travel plans
 - **low stakes**: a release-notes comic lost to a medicaid work-hours tool at the same event
 - **a missed disqualifier**: coby was never on a store at an event that screens on store urls
+- **claims a judge couldn't check**: no evidence folder, no judges file, no command that re-runs the proof
+
+not the cause: time. 7 of 8 losses were built in 1–3 days, but the serial winners also build in 2–5 days and overlap events. what they build in that time is different: an event spec the agent reads every session, the sponsor's own tooling installed, the hard part proven with real money first, and evidence a judge can re-run (`cases.md`).
 
 v3 is built to stop each of those.
 
@@ -25,6 +27,9 @@ v3 is built to stop each of those.
 | about 12 harness docs | **4 docs**: brief, plan, state, readme |
 | a remotion film by default | **an agent-recorded capture of the real app, assembled in hyperframes**, by default; the fuller film only with a day to spare |
 | honesty tables first | **proof first**, limits at the bottom |
+| a generic `AGENTS.md` | **an event spec** in `AGENTS.md`: rubric mapped to features, verified constants, gotchas, winners not to clone |
+| a proof list in the readme | **evidence a judge can re-run**: `evidence/`, `JUDGES.md` (claim → code → test → command) and `check-live` |
+| a dx report if asked | **`SPONSOR_NOTES.md`** with measured numbers, plus upstream fixes; **`BUILDLOG.md`** in plain words |
 | no review of results | **step 7 postmortem** plus `results.md`; a lesson that repeats changes the rules |
 
 kept from v2: the anti-slop design rules (shortened), the logo rules, the build loop, the never-fabricate rule, away mode (was sleep mode), model roles, and the playwright capture script (now `templates/run-demo.ts`).
@@ -41,7 +46,8 @@ hackathon-playbook/
     1-triage.md  2-idea.md  3-build.md  4-design.md
     5-demo.md  6-submit.md  7-postmortem.md
   templates/
-    BRIEF.md  PLAN.md  STATE.md  README.md  run-demo.ts
+    AGENTS.md  BRIEF.md  PLAN.md  STATE.md
+    README.md  JUDGES.md  check-live.mjs  run-demo.ts
 ```
 
 ## install on the vps
@@ -62,4 +68,4 @@ hackathon-playbook/
 
 ## the habit that matters most
 
-pick **one** upcoming event that's at least two weeks long. triage it on day 1, have the sponsor's core working live by the 25% mark, and work on it daily. that's how kanmani, incorpr and animr were built.
+on every event, before anything else: install the sponsor's own tooling, make the hard part work live, and put that first result in `evidence/` and `check-live`. then every claim you add is something a judge can re-run. that's what jenny, mrnetwork, tim and enoch have in their repos and ours don't.

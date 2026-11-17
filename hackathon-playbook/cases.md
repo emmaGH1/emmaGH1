@@ -1,6 +1,6 @@
 # cases: why v3 says what it says
 
-> the evidence behind the six laws. read once per new event. dates are 2026. "built" means first to last commit in the repo.
+> the evidence behind the laws. read once per new event. dates are 2026. "built" means first to last commit in the repo.
 
 ## the win
 
@@ -25,17 +25,70 @@
 
 ## the patterns
 
-1. **late start on long windows** (law 1): 7 of 8 losses were built in the final 1–3 days. sep 3–19 alone had 7 projects in 17 days.
-2. **sponsor core not doing the job** (law 3): strip, normandy, stockup, mnemo.
-3. **fiction as the proof** (laws 4 and 5): city-money, mnemo, normandy.
-4. **low stakes** (law 4): strip, mnemo, normandy.
+1. **sponsor core not doing the job** (law 3): strip, normandy, stockup, mnemo.
+2. **fiction as the proof** (laws 4 and 5): city-money, mnemo, normandy.
+3. **low stakes** (law 4): strip, mnemo, normandy.
+4. **claims a judge couldn't check** (law 5): none of the 9 repos has an `evidence/` folder, a judges file or one command that re-checks the live claims. stockup had 17 probe and verify scripts in `scripts/` but nothing pointed a judge at them.
 5. **a missed disqualifier** (law 2): coby.
+
+**correction (nov 17):** v3 first said the main pattern was starting late. the serial winners' own repos say otherwise. they also build in 2–5 days and overlap several events (below). 7 of 8 losses were built in 1–3 days, but so were most wins. time isn't what separates us; what's built in that time is.
 
 ## what serial winners do (from their repos, nov 2026)
 
-- **ship to mainnet and lead with numbers.** incorpr: "75 mainnet transactions recorded… including 11 that the vault refused." about 41–55% of tim's and mrnetwork's readmes mention mainnet, against 17% of ours.
-- **a judge path with no wallet:** animr's "judges, start here: a 2-minute guided tour"; lens's "judge it in 90 seconds".
-- **a video in the readme:** about 54% of enoch's and 41% of mrnetwork's readmes link a demo video, against 17% of ours.
-- **depth over count:** animr had 206 commits in 3 days, incorpr 184 in 4. ours: usually 10–50.
-- **dx reports as a scoring lever:** tim placed 3rd of 258 at jupiter mostly on one; elitr logged friction from hour 1.
-- **many prize slots:** tim's 20 wins over a year include 2nds, 3rds, track prizes and categories. they lose most events too; the realistic target is about 1 in 5, not every one.
+### how long they build, and how many at once
+
+first to last commit, recent repos:
+
+| who | project | days | commits |
+|---|---|---|---|
+| mrnetwork | kestrel · incorpr · reqlab · brokro | 2 · 4 · 4 · 5, all inside nov 6–14 | 144 · 184 · 84 · 73 |
+| jenny | ditto · tug · adelanto · unhuntable | 1 · 2 · 5 · 9 (adelanto and unhuntable overlap) | 20 · 70 · 78 · 113 |
+| tim | reissue · sidecar | 2 · 2 active days, both in early nov | 91 · 61 |
+| enoch | cadence · pavilion · backstop | 3 · 4 · 3 | 102 · 39 · 128 |
+| us | roux (won) · strip · stockup · coby | 4 · 3 · 2 · 3 | 35 · 36 · 97 · 64 |
+
+short bursts and overlapping events are normal for them. what differs is below.
+
+### 1. an event spec the agent reads every session (mrnetwork)
+
+kestrel's `CLAUDE.md` opens with the event, the deadline in UTC and the one-line pitch, then:
+
+- **the rubric mapped to features**, weight by weight ("execution 30%: 100% real live rpc reads… zero fake mock json")
+- **previous winners it must not clone** ("does not clone wave 1 projects: corvo edge, onetoken…")
+- **verified constants**: every contract address and rpc "verified live on 2026-11-04 · do not guess"
+- **gotchas found by hand** (robinhood chain's firewall returns 403 to default user agents)
+- **invariants**: zero mock data, bigint everywhere, simulate before every write
+- **how the judges read it**: the event's ai crawler fetches `/` and every internal link, so the landing page is server-rendered with no wallet gate, and there's an `/llms.txt`
+
+then it's built in 2–3 big staged prompts or slash commands (`/kickoff`, `/verify-onchain`, `/audit-fundable`), with the sponsor's live mcp server in `.mcp.json`. truvian's `CLAUDE.md` keeps a "verified facts" list and "open unknowns: do not invent endpoints".
+
+### 2. evidence a judge can re-run (jenny, enoch)
+
+- jenny has an `evidence/` folder in 7 of her 13 recent repos; enoch has one in clarilot, cadence and runva. they hold raw json from real runs: deposits, loans, transactions, evaluations.
+- unhuntable's `JUDGES.md`: "every claim, where it lives in the code, the test that checks it, and the command that shows it". one command (`node tools/check-live.mjs`, no install, no account, no money) prints pass/fail for 15 live claims and ends "15 of 15 passed".
+
+### 3. the hard part first, with real money (jenny)
+
+ditto's build log: "before any planning, i put 1 dollar into aave and took it back out. that showed the whole thing could work." a fixed test budget (8 usdc), every test returns the money. showme's log marks each account check observed or unverified before any feature work.
+
+### 4. a plain build log (jenny)
+
+`BUILDLOG.md`, dated, in plain words: the ideas dropped and why, the money rules, every failed test and its fix ("a one-unit shortfall on optimism… we kept the rule and didn't loosen it to make the test pass"). it reads as honest and complete, which is what "completeness" criteria reward.
+
+### 5. sponsor notes and upstream fixes (tim, jenny)
+
+- tim's `SPONSOR_BEHAVIOUR.md` (sidecar): what the sponsor's sdk really did, each item tagged live read, test or fork, with measured p50/p95 latency and gas per transaction. a dx report with numbers.
+- jenny's trueup sent pull requests to the tools it found bugs in; the sponsor (neatlogs) merged one and fixed 16 more findings during the event.
+- tim's `DECISIONS.md` (rejected products and why) and `REVIEWS.md` (bugs found by adversarial review, each now covered by a test).
+
+### 6. the sponsor's own agent tooling in the repo
+
+jenny's aegis-skills ships okx's official agent skills in `.agents/skills/`; kestrel connects the sponsor's mcp. the agent writes against the sponsor's real docs, not its memory.
+
+### still true from the first pass
+
+- **mainnet and numbers first:** incorpr: "75 mainnet transactions recorded… including 11 that the vault refused."
+- **a judge path with no wallet:** animr's "judges, start here: a 2-minute guided tour".
+- **a video link in the readme** (enoch about 54%, mrnetwork about 41%, us 17%); mrnetwork keeps a `video/` folder in most repos.
+- **submission answers in the repo:** brokro's `SUBMISSION.md` keeps the form answers version-controlled.
+- **many prize slots, many losses:** tim's 20 wins over a year include 2nds, 3rds, tracks and categories. the realistic target is about 1 in 5.

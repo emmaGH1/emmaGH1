@@ -35,7 +35,7 @@ anything scoring 0 on **sponsor** or **real** is out.
 
 ## 3. collision check (10 minutes, top 2 only)
 
-search this event's gallery and past editions (devpost, dorahacks), github and x. on a close match, name the wedge in one line or drop it. check the name isn't taken in the same space. a collision means sharpen the idea, not kill it on reflex.
+search this event's gallery and past editions (devpost, dorahacks), github and x. on a close match, name the wedge in one line or drop it. check the name isn't taken in the same space. a collision means sharpen the idea, not kill it on reflex. if the event had earlier waves or editions, list their winners: the picked idea must not clone them (kestrel's spec named four wave-1 projects it wouldn't copy). the list goes in `AGENTS.md` → don't clone; dropped ideas go in `docs/PLAN.md`.
 
 ## 4. one critique, then the human picks
 

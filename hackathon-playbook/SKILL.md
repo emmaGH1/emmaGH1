@@ -11,12 +11,12 @@ this file is the only one loaded every session. open a step file only when you r
 
 ## the six laws
 
-1. **start early; when late, shrink the plan.** a long event is won by long work: 7 of the 8 losses in `cases.md` were built in the last 1–3 days of a window that ran from 36 hours to 8 weeks, and the winners were there from week one. so start the day you enter. when you're late or deadlines clash, the plan gets smaller (`steps/1-triage.md` §5); the playbook never tells you to skip for time unless you ask.
+1. **the hard part first, for real.** before deep planning, make the sponsor's riskiest call work live: one real auth, transaction or api response (jenny put $1 into aave and took it back out before planning ditto). serial winners also build in 2–5 days and overlap events (`cases.md`); what they do in those days is the difference. when time is short the plan shrinks (`steps/1-triage.md` §5); the playbook never says skip for time unless asked.
 2. **the rules are a list of ways to be disqualified.** read them before any idea. every hard requirement becomes a checkbox in `docs/BRIEF.md` that must be ticked, with evidence, before submitting. (coby had no store listing at an event that screens on store urls.)
-3. **build what the sponsor wants more of.** the sponsor's own product does the main job, live. if you can delete it and the app still works, the idea is wrong. the co-host, special awards and tie-breaks tell you exactly what they want. (stockup used rabby at an event co-hosted by binance web3 wallet whose tie-break was depth of web3 wallet api use.)
+3. **build what the sponsor wants more of, on the sponsor's own tooling.** the sponsor's product does the main job, live. if you can delete it and the app still works, the idea is wrong. the co-host, special awards and tie-breaks say what they want (stockup used rabby at a binance web3 wallet event). install the sponsor's official agent skills, mcp server or docs into the repo in hour 1, so the agent never guesses an endpoint.
 4. **a real person with real stakes, using real data.** someone who loses money, health, time or standing without it, and would use it next week, reached where they already are (telegram, whatsapp, the sponsor's app). no fictional neighbourhoods, no seeded communities as the core proof.
-5. **make it real instead of explaining why it isn't.** mainnet or production api over testnet, a live model call over cached output. the readme opens with proof; limits go at the bottom. never fabricate anything.
-6. **less process, more product.** roux, the one win, was coding in its first hour with no ideation docs. 4 project docs, 3 human decisions, one builder at a time.
+5. **every claim has evidence a judge can re-run.** mainnet or production over testnet, live calls over cached output. raw outputs of real runs go in `evidence/`; `JUDGES.md` maps each claim to its code, test and command; one command (`npm run check-live`) re-checks the live claims and prints "n of n passed". write it for human and ai judges. never fabricate anything.
+6. **small process for the agent, big proof for the judge.** 4 working docs and 3 human decisions. judge-facing files (`JUDGES.md`, `evidence/`, `BUILDLOG.md`, `SPONSOR_NOTES.md`, `SUBMISSION.md`) are proof, not process. strip had 17 process docs and its judged ai feature didn't run.
 
 ## the clock
 
@@ -24,11 +24,11 @@ the clock runs from the moment you start building to the deadline. step 1 decide
 
 | mark | must be true | if not |
 |---|---|---|
-| hour 1 | brief written, disqualifiers listed, repo deployed to a live url (a blank page is fine), riskiest sponsor call tried | nothing else starts until this is done |
+| hour 1 | brief written, event spec in `AGENTS.md`, sponsor skills/mcp installed, repo live at a url (a blank page is fine), riskiest sponsor call tried for real | nothing else starts until this is done |
 | 10% | idea picked, `docs/PLAN.md` written | take the top-scoring idea and move |
 | 25% | the sponsor's product does the main job, live, with real data | change the idea now, or shrink it to what the sponsor tech can really do |
-| 50% | the one journey works end to end on the live url, checked at phone width | cut everything outside that journey |
-| 75% | **feature freeze.** demo recorded, readme written | stop building; finish the submission |
+| 50% | the one journey works end to end on the live url, checked at phone width; `check-live` passes for it | cut everything outside that journey |
+| 75% | **feature freeze.** every claim in `JUDGES.md` has evidence, demo recorded, readme written | stop building; finish the submission |
 | 90% | submitted | — |
 | 100% | buffer for broken deploys, upload failures and timezones | — |
 
@@ -58,15 +58,19 @@ everything else the agent decides and reports. never spend money, submit, publis
 | 6 · submit | `steps/6-submit.md` | the 75% mark, or "submit" |
 | 7 · postmortem | `steps/7-postmortem.md` | results are out, or "postmortem" |
 
-## project files (only these)
+## project files
 
-- `AGENTS.md`: repo rules, folder ownership, what not to touch, the locked visual direction
+working docs (for the agent; only these):
+
+- `AGENTS.md`: the event spec (`templates/AGENTS.md`): rubric mapped to features, verified constants, gotchas, invariants, folder ownership, the locked visual direction
 - `docs/BRIEF.md`: event facts, disqualifier checklist, judging weights, what the sponsor wants (`templates/BRIEF.md`)
-- `docs/PLAN.md`: the idea, the person, the one journey, the cut list, clock dates (`templates/PLAN.md`)
-- `docs/STATE.md`: what works now (verified), the proof list, friction log, next action (`templates/STATE.md`)
-- `README.md`: judge-facing (`templates/README.md`)
+- `docs/PLAN.md`: the idea, the person, the one journey, the cut list, ideas dropped, clock dates (`templates/PLAN.md`)
+- `docs/STATE.md`: what works now (verified), friction log, next action (`templates/STATE.md`)
 
-no other docs unless the event asks for them (a dx report, a disclosure). strip had 17 files in `docs/` and the ai feature it was judged on still didn't run.
+judge-facing (proof; grow them as you build):
+
+- `README.md` (`templates/README.md`) · `JUDGES.md` (`templates/JUDGES.md`) · `evidence/` (raw outputs of real runs, dated) · `scripts/check-live.mjs` (`templates/check-live.mjs`)
+- at submit: `BUILDLOG.md`, `SPONSOR_NOTES.md` (the dx report), `SUBMISSION.md` (the form answers)
 
 ## quality floor
 
