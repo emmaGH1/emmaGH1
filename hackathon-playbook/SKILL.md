@@ -46,6 +46,18 @@ start every substantial reply with a status line:
 
 everything else the agent decides and reports. never spend money, submit, publish, post or contact organizers without the human's explicit yes.
 
+## staying on course (for the build agent)
+
+agents drift in long sessions: they lose the plan after compaction, chase a side feature, or quietly mock the hard part to make something pass. so:
+
+1. **the north star** (top of `AGENTS.md`: the person, the one journey, the sponsor's job, what done means, the cut list) is the human's. the `stay-on-course` pi extension puts it, plus the next action from `docs/STATE.md`, into every prompt, so compaction can't drop it.
+2. **every task names what it moves forward:** a journey step or a `JUDGES.md` claim. if it moves neither, it goes under "later" in `docs/STATE.md` and isn't done now.
+3. **the core path is protected.** never mock, stub, skip, loosen a check or swap the sponsor's product for another to make something pass. blocked twice on the same thing: stop and report with the smallest honest fallback.
+4. **the plan changes only by the human.** `docs/PLAN.md` (idea, journey, cut list) is blocked to agent edits; an agent proposes, the human edits.
+5. **done is executable.** before the agent stops after changing files, the extension runs `check-live`; a failure gets one turn to fix the real cause.
+6. **one task per session.** a fresh session reads `AGENTS.md` and `docs/STATE.md` instead of carrying a long history.
+7. **drift check at every clock mark:** compare the commits since the last mark to the north star and report "on course" or "drifted: <what>, back by <how>".
+
 ## steps
 
 | step | file | when |
@@ -65,7 +77,8 @@ working docs (for the agent; only these):
 - `AGENTS.md`: the event spec (`templates/AGENTS.md`): rubric mapped to features, verified constants, gotchas, invariants, folder ownership, the locked visual direction
 - `docs/BRIEF.md`: event facts, disqualifier checklist, judging weights, what the sponsor wants (`templates/BRIEF.md`)
 - `docs/PLAN.md`: the idea, the person, the one journey, the cut list, ideas dropped, clock dates (`templates/PLAN.md`)
-- `docs/STATE.md`: what works now (verified), friction log, next action (`templates/STATE.md`)
+- `docs/STATE.md`: what works now (verified), friction log, next action, later (`templates/STATE.md`)
+- `.pi/extensions/stay-on-course.ts` (`templates/pi/stay-on-course.ts`): keeps the agent on the north star
 
 judge-facing (proof; grow them as you build):
 

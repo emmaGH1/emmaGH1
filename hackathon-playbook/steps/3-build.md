@@ -4,7 +4,8 @@
 
 ## hour 1 (roux, plus what serial winners do)
 
-- repo with `AGENTS.md` (the event spec, from `templates/AGENTS.md`), `docs/BRIEF.md`, `docs/PLAN.md`, `docs/STATE.md`
+- repo with `AGENTS.md` (the event spec, from `templates/AGENTS.md`, north star filled in from the picked idea), `docs/BRIEF.md`, `docs/PLAN.md`, `docs/STATE.md`
+- copy `templates/pi/stay-on-course.ts` to `.pi/extensions/` and trust the project in pi
 - **install the sponsor's own agent tooling**: their official skills (`.agents/skills/`), mcp server (`.mcp.json`), `llms.txt` or docs. verify every address, endpoint and sdk version live and write it in `AGENTS.md` with the date: "verified · do not guess".
 - scaffold and deploy a live url (vercel). a page with the name on it is enough.
 - **the hard part, for real:** the riskiest sponsor call, live: one auth, one transaction, one api response. with money, set a test budget and make every test return it (jenny: $8 budget, $1 in and out of aave). save the raw output in `evidence/`.
@@ -38,12 +39,13 @@ in this order:
 ## the build loop (every task)
 
 1. read `AGENTS.md`, `docs/PLAN.md`, `docs/STATE.md`
-2. restate the task and its acceptance check
+2. restate the task, its acceptance check, and the journey step or `JUDGES.md` claim it moves forward (none → "later" in `docs/STATE.md`)
 3. touch the fewest files
 4. typecheck, lint, test, build
 5. look at the real ui when visuals matter
-6. update `docs/STATE.md` (verified facts only) and commit
-7. stop
+6. `node scripts/check-live.mjs` still passes
+7. update `docs/STATE.md` (verified facts only) and commit
+8. stop
 
 ## parallel lanes
 

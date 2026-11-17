@@ -48,13 +48,15 @@ hackathon-playbook/
   templates/
     AGENTS.md  BRIEF.md  PLAN.md  STATE.md
     README.md  JUDGES.md  check-live.mjs  run-demo.ts
+    pi/stay-on-course.ts   ← pi extension: keeps the build agent on the plan
 ```
 
 ## install on the vps
 
 1. delete the old `hackathon-playbook/` from pi's skills folder (usually `~/.pi/agent/skills/`) so v2 can't load.
 2. copy this folder there.
-3. start a fresh pi session: `/hackathon-playbook`, then `triage <event link>`. it should come back with a fit score, the time left and a plan size, not ideas. if it starts ideating or coding, v2 is still loaded somewhere.
+3. per project, copy `templates/pi/stay-on-course.ts` to `<repo>/.pi/extensions/` and trust the project when pi asks. it keeps the north star in every prompt, blocks agent edits to `docs/PLAN.md` and re-runs `check-live` before the agent stops.
+4. start a fresh pi session: `/hackathon-playbook`, then `triage <event link>`. it should come back with a fit score, the time left and a plan size, not ideas. if it starts ideating or coding, v2 is still loaded somewhere.
 
 ## how to use it
 

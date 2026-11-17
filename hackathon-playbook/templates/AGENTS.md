@@ -6,6 +6,16 @@
 - **pitch:** <one plain line: who it's for and what it does for them>
 - **sponsor wants:** <one sentence from docs/BRIEF.md>
 
+## north star
+
+> the human's. agents never edit this section; the stay-on-course extension puts it in every prompt.
+
+- **the person:** <who, and what they lose without it>
+- **the one journey:** <step 1> → <step 2> → <step 3> → <the result they see>
+- **the sponsor's main job:** <which sponsor product does which step, live>
+- **done means:** these claims pass in `check-live`: <claim 1> · <claim 2> · <claim 3>
+- **not building:** <the cut list, in one line>
+
 ## the rubric, mapped to what proves it
 
 | criterion | weight | what we build or show for it |

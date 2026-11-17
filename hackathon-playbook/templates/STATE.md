@@ -10,6 +10,10 @@ clock: <n>% · last mark: <25% green / red> · updated: <date time WAT>
 
 -
 
+## later (parked: doesn't move the journey or a claim yet)
+
+-
+
 ## proof (each also in `evidence/`, `JUDGES.md` and `check-live`)
 
 - <tx / api run / live session link> · what it shows
