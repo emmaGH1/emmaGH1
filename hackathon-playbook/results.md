@@ -1,5 +1,13 @@
 # results log
 
+## upcoming (check for clashes at every triage)
+
+| event | window | deadline (WAT) | triage score | status (considering / entered / skipped) |
+|---|---|---|---|---|
+| | | | | |
+
+## past events
+
 > one row per event, filled in at step 7. if the same "rule to change" shows up twice, change `SKILL.md`.
 
 | date | event | window | days built | placed | winner | what they had that we didn't | rule to change |

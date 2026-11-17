@@ -23,7 +23,7 @@ v3 is built to stop each of those.
 | about 10 stop gates | **3 human decisions**: enter, which idea, submit |
 | phases with no time limits | **a clock**: hour 1 · 10% · 25% · 50% · 75% freeze · 90% submitted |
 | about 12 harness docs | **4 docs**: brief, plan, state, readme |
-| a remotion film by default | **a recording that proves it works** by default; the film only with a day to spare |
+| a remotion film by default | **an agent-recorded capture of the real app, assembled in hyperframes**, by default; the fuller film only with a day to spare |
 | honesty tables first | **proof first**, limits at the bottom |
 | no review of results | **step 7 postmortem** plus `results.md`; a lesson that repeats changes the rules |
 

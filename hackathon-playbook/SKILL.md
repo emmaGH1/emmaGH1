@@ -11,7 +11,7 @@ this file is the only one loaded every session. open a step file only when you r
 
 ## the six laws
 
-1. **enter fewer, start early.** at most 2 live events, and only one of them longer than a week. a long event is won by long work: 7 of the 8 losses in `cases.md` were built in the last 1–3 days of a window that ran from 36 hours to 8 weeks. the winners were there from week one.
+1. **enter fewer, start early.** at most 2 live events, and only one of them longer than a week. a long event is won by long work: 7 of the 8 losses in `cases.md` were built in the last 1–3 days of a window that ran from 36 hours to 8 weeks. the winners were there from week one. when deadlines clash, follow `steps/1-triage.md` §5.
 2. **the rules are a list of ways to be disqualified.** read them before any idea. every hard requirement becomes a checkbox in `docs/BRIEF.md` that must be ticked, with evidence, before submitting. (coby had no store listing at an event that screens on store urls.)
 3. **build what the sponsor wants more of.** the sponsor's own product does the main job, live. if you can delete it and the app still works, the idea is wrong. the co-host, special awards and tie-breaks tell you exactly what they want. (stockup used rabby at an event co-hosted by binance web3 wallet whose tie-break was depth of web3 wallet api use.)
 4. **a real person with real stakes, using real data.** someone who loses money, health, time or standing without it, and would use it next week, reached where they already are (telegram, whatsapp, the sponsor's app). no fictional neighbourhoods, no seeded communities as the core proof.

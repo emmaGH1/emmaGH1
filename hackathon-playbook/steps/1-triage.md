@@ -45,7 +45,17 @@ if enoch, tim, mrnetwork or jenny (or anyone with a long winning record) usually
 
 **enter at 6 or more.**
 
-## 5. the verdict (one screen)
+## 5. deadline clashes
+
+clashes are normal. the fix is to stop every deadline landing in the same crunch, not to enter everything thinly.
+
+- **keep a calendar** in `results.md` → "upcoming": every event you're in or considering, with its window and deadline in WAT.
+- **long events get the early weeks.** start a multi-week event in week one and put a little work in daily, so its last week is polishing, not building. then a sprint can sit beside it without both getting 2 days.
+- **two deadlines within 3 days of each other:** the higher triage score gets the full clock. the other is entered only if its 50% mark (the one journey working end to end) is already green before the crunch starts. otherwise skip it.
+- **never three.** a third overlapping event is a hard skip, however good the prize. september had 7 projects in 17 days and won only the one that got 4 focused days.
+- **a skipped event isn't a loss.** a thin entry costs time and teaches nothing; a skipped one costs nothing.
+
+## 6. the verdict (one screen)
 
 - **enter / skip**, score, and the single biggest risk
 - deadline in WAT and the days you'll actually build

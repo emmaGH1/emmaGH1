@@ -15,13 +15,17 @@ judges often decide from the first two minutes of the video. at shipaton that's 
 
 narrate meaning, not clicks: not "now i click submit" but "it checks every hour against the rule and asks the one thing only you know." aim for one moment someone could describe the next day.
 
+## who records
+
+the agent does. the human works from a phone, so nobody records by hand: the agent drives the real app on the vps (playwright via `templates/run-demo.ts`, or computer use) and assembles the video with hyperframes. the human only watches drafts on the phone and approves.
+
 ## the ladder (default is rung 2)
 
-1. **minimum:** a screen or phone recording of the real journey, a voiceover, a title card and an end card. always possible, even in the last hour.
-2. **default:** playwright capture (`templates/run-demo.ts`), a narration draft in free local tts then elevenlabs for the final, captions, and zooms on the 4k screenshots. assemble with hyperframes or ffmpeg.
-3. **film:** a remotion product film with exploded ui. only if the 75% mark was green with at least a full day to spare. build it in gates: look stills → rough cut → polish → render, each needing the human's yes.
+1. **minimum:** an agent capture of the real journey, a voiceover, a title card and an end card, put together with hyperframes. possible even in the last hour, so a working app always gets a video.
+2. **default:** an agent capture with `data-demo` marks, 4k screenshots for zooms, a narration draft in free local tts then elevenlabs for the final, and captions, all assembled in hyperframes.
+3. **film:** a fuller product film (hyperframes, or remotion with exploded ui). only if the 75% mark was green with at least a full day to spare. build it in gates: look stills → rough cut → polish → render, each needing the human's yes.
 
-never: motion graphics with no real product in them.
+never: motion graphics with no real product in them. the capture must show the real app running the real journey.
 
 ## rules
 
