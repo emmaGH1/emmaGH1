@@ -15,12 +15,12 @@ this file is the only one loaded every session. open a step file only when you r
 2. **the rules are a list of ways to be disqualified.** read them before any idea. every hard requirement becomes a checkbox in `docs/BRIEF.md` that must be ticked, with evidence, before submitting. (coby had no store listing at an event that screens on store urls.)
 3. **build what the sponsor wants more of, on the sponsor's own tooling.** the sponsor's product does the main job, live. if you can delete it and the app still works, the idea is wrong. the co-host, special awards and tie-breaks say what they want (stockup used rabby at a binance web3 wallet event). install the sponsor's official agent skills, mcp server or docs into the repo in hour 1, so the agent never guesses an endpoint.
 4. **a real person with real stakes, using real data.** someone who loses money, health, time or standing without it, and would use it next week, reached where they already are (telegram, whatsapp, the sponsor's app). no fictional neighbourhoods, no seeded communities as the core proof.
-5. **every claim has evidence a judge can re-run.** mainnet or production over testnet, live calls over cached output. raw outputs of real runs go in `evidence/`; `JUDGES.md` maps each claim to its code, test and command; one command (`npm run check-live`) re-checks the live claims and prints "n of n passed". write it for human and ai judges. never fabricate anything.
+5. **every claim has evidence a judge can re-run.** mainnet or production over testnet, live calls over cached output. raw outputs of real runs go in `evidence/`; `JUDGES.md` maps each claim to its code, test and command; one command (`node scripts/check-live.mjs`) re-checks the live claims and prints "n of n passed". write it for human and ai judges. never fabricate anything.
 6. **small process for the agent, big proof for the judge.** 4 working docs and 3 human decisions. judge-facing files (`JUDGES.md`, `evidence/`, `BUILDLOG.md`, `SPONSOR_NOTES.md`, `SUBMISSION.md`) are proof, not process. strip had 17 process docs and its judged ai feature didn't run.
 
 ## the clock
 
-the clock runs from the moment you start building to the deadline. step 1 decides whether that start is early enough to enter at all.
+the clock runs from the moment you start building to the deadline. the marks are percentages, so they shrink with whatever time is left.
 
 | mark | must be true | if not |
 |---|---|---|
