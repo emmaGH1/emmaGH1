@@ -1,6 +1,6 @@
 ---
 name: hackathon-playbook
-description: emmanuel's hackathon playbook (v3). use when deciding whether to enter a hackathon, picking an idea, building, demoing, submitting or reviewing a result, or when the human says "triage", "idea", "checkpoint", "demo", "submit", "postmortem", "away mode" or "seed:".
+description: emmanuel's hackathon playbook (v3). use when deciding whether to enter a hackathon, picking an idea, building, demoing, submitting or reviewing a result, or when the human says "triage", "idea", "checkpoint", "demo", "submit", "postmortem", "away mode" or "note:".
 ---
 
 # hackathon playbook v3
@@ -113,9 +113,9 @@ when the human says they're leaving: lock the idea, the journey, the cut list, a
 
 ## between events
 
-- **`seed: <what happened>`**: append a row to `seeds.md` (date, who, what they lost, where). no ideation, no reply beyond "saved".
-- **`lane.md`** holds the lane and the lane log; **`templates/core/`** holds the reusable parts (guard, evidence, receipts, telegram). after each event, copy improvements back and add a lane-log line.
+- **`note: <what happened>`**: append a row to `problems.md` (date, who, what happened, where). no ideation, no reply beyond "saved".
+- **`lane.md`** holds the optional lane (for money, payments and agent events) and the lane log; **`templates/core/`** holds the reusable parts (guard, evidence, receipts, telegram). after each event, copy improvements back and add a lane-log line.
 
 ## shorthand
 
-`triage <link>` · `idea` · `checkpoint` (report the clock mark) · `demo` · `submit` · `postmortem` · `away mode` · `seed: <…>`
+`triage <link>` · `idea` · `checkpoint` (report the clock mark) · `demo` · `submit` · `postmortem` · `away mode` · `note: <…>`

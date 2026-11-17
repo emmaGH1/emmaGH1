@@ -12,7 +12,7 @@ a loss teaches nothing until it's compared with what won.
    - the agent guessed the sponsor's api instead of using their skills, mcp or docs
    - missed a disqualifier
 4. **look inside the winner's repo,** not just its readme: `AGENTS.md`/`CLAUDE.md`, `evidence/`, judges files, scripts. if they did something the playbook doesn't, note it in `cases.md`.
-5. **lane log:** one line in `lane.md` (what this event added to the core, or learned about this user). copy core improvements back to `templates/core/`. mark the seed used in `seeds.md`.
+5. **if it was a lane event:** one line in `lane.md`, and copy core improvements back to `templates/core/`. mark any note used in `problems.md`.
 6. **same reason twice → change `SKILL.md`.** a playbook that never changes after a loss is decoration.
 7. **if you placed:** one line on what worked, in `cases.md`.
 8. **ask for feedback** when the event offers it (draft the message; the human sends it).

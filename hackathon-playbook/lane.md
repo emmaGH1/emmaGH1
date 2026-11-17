@@ -12,7 +12,7 @@
 
 ## outside the lane
 
-still fine when an event clearly fits something else (roux was a restaurant picker and won). then use the core where it helps and pick the idea on the normal tests.
+most events won't fit, and that's fine: a 3d jam, a game jam, a design challenge. enter them on the normal tests and ignore the lane (roux was a restaurant picker and won). the lane is a head start for the events that do fit, not a filter.
 
 ## lane log
 

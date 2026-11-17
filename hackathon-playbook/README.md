@@ -42,7 +42,7 @@ hackathon-playbook/
   README.md         ← this file (for you, not the agent)
   cases.md          ← the evidence: the win, 8 losses, what serial winners do
   results.md        ← one row per event, filled in after results
-  seeds.md          ← real moments you notice; ideas start here (`seed: …` from your phone)
+  problems.md       ← real problems you notice (`note: …` from your phone); ideas use them when they fit
   lane.md           ← the lane, and what each event added to the core
   steps/
     1-triage.md  2-idea.md  3-build.md  4-design.md
@@ -70,7 +70,7 @@ hackathon-playbook/
 - `submit`: disqualifier check, readme, judge audit, checklist
 - `postmortem`: compare with the winners, add a row to `results.md`
 - `away mode`: lock everything before you step away
-- `seed: <what happened>`: save a real moment to `seeds.md`, any day
+- `note: <what happened>`: save something you noticed to `problems.md`, any day
 
 ## the habit that matters most
 
