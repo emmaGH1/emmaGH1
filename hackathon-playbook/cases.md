@@ -25,11 +25,11 @@
 
 ## the patterns
 
-1. **sponsor core not doing the job** (law 3): strip, normandy, stockup, mnemo.
-2. **fiction as the proof** (laws 4 and 5): city-money, mnemo, normandy.
-3. **low stakes** (law 4): strip, mnemo, normandy.
-4. **claims a judge couldn't check** (law 5): none of the 9 repos has an `evidence/` folder, a judges file or one command that re-checks the live claims. stockup had 17 probe and verify scripts in `scripts/` but nothing pointed a judge at them.
-5. **a missed disqualifier** (law 2): coby.
+1. **sponsor core not doing the job** (v4 law 3, the sponsor does the job): strip, normandy, stockup, mnemo.
+2. **fiction as the proof** (v4 laws 2 and 4: real action, measured proof): city-money, mnemo, normandy.
+3. **low stakes** (v4 law 2: one action, two payoffs): strip, mnemo, normandy.
+4. **claims a judge couldn't check** (v4 law 4 and step 6): none of the 9 repos has an `evidence/` folder, a judges file or one command that re-checks the live claims. stockup had 17 probe and verify scripts in `scripts/` but nothing pointed a judge at them.
+5. **a missed disqualifier** (v4 law 1, qualify first): coby.
 
 **correction (nov 17):** v3 first said the main pattern was starting late. the serial winners' own repos say otherwise. they also build in 2–5 days and overlap several events (below). 7 of 8 losses were built in 1–3 days, but so were most wins. time isn't what separates us; what's built in that time is.
 
@@ -92,3 +92,40 @@ jenny's aegis-skills ships okx's official agent skills in `.agents/skills/`; kes
 - **a video link in the readme** (enoch about 54%, mrnetwork about 41%, us 17%); mrnetwork keeps a `video/` folder in most repos.
 - **submission answers in the repo:** brokro's `SUBMISSION.md` keeps the form answers version-controlled.
 - **many prize slots, many losses:** tim's 20 wins over a year include 2nds, 3rds, tracks and categories. the realistic target is about 1 in 5.
+
+## worked examples for v4 (nov 22)
+
+### the singularity: roux
+
+when friends each tap once, they get a fair restaurant near the middle, and flynet gets diners sent to blackbird. the same action pays both sides; that's why a sponsor judge could retell it in one sentence. a cold line for its gallery card: "where's fair for everyone?"
+
+### the readme: rummage (aholo 3d jam, results pending)
+
+the content was strong; the order served a verifier, not a first-time reader.
+
+- **before:** a 420px logo, five links, one wide still of the library, then a bold wall of numbers with a caveat in brackets and "8 of 8 passed". section 2 was "one piece, end to end" with task `8288959` and urdf xml, before "the idea".
+- **the fix:** the best readme was already in section 5: the yellow chest, the real motion prompt that made its drawers slide, and a seeded layout where one drawer holds the key. move those to the top.
+
+```markdown
+[BANNER: the rummage wordmark over a real frame of the wizard's study]
+
+### The wizard has lost his keys. Open drawers, swing doors and lift lids to find them before time runs out.
+
+▶ Play the Wizard's Study (?level=1&seed=11) · Watch the 2-min film · Judges start here
+
+[HERO: a short loop from that layout: the yellow chest, tap the drawer with the key, hold so you see inside]
+*Try the yellow chest in this room. One of its three drawers holds a key.*
+
+Aholo Lux3D made the chest and gave each drawer its sliding motion. Rummage uses that motion when you tap.
+All 55 pieces of furniture across the five rooms were made this way. No furniture joint was rigged by hand.
+
+Play by day, search by flashlight at night, or hide a key and send the challenge to a friend.
+The furniture is generated ahead of time, so you can play without an account or API key.
+
+Curious how a piece was made? Choose **See how Lux3D built this room** on the title screen.
+[SECOND IMAGE: the inspector panel, cropped so its labels read on a phone]
+```
+
+what moved down: hinge and slider counts (to proof), task ids and urdf (to "one piece, end to end" under judges start here), the video-staging notes (labelled where they appear in the film, details in the report), the hand-built picture and floorboard (mentioned where room secrets are described).
+
+the repo itself isn't edited until results are out: judges may check commit dates against the window.

@@ -1,30 +1,26 @@
 # state
 
-clock: <n>% · last mark: <25% green / red> · updated: <date time WAT>
-
-## works now (verified, with how)
-
--
+> progress is not written here. it's measured: `node scripts/status.mjs` (latest board in `evidence/status/latest.json`).
 
 ## next action
 
--
+- <the first journey step that isn't passing, and the next concrete move on it>
 
-## later (parked: doesn't move the journey or a claim yet)
-
--
-
-## proof (each also in `evidence/`, `JUDGES.md` and `check-live`)
-
-- <tx / api run / live session link> · what it shows
-
-## friction log (becomes `SPONSOR_NOTES.md`)
-
-- <time> · <what the sponsor's docs, api or sdk did> · seen by: live read / test / fork · <numbers if measured>
-
-## limits (honest; these go at the bottom of the readme)
+## later (parked: moves no journey step yet)
 
 -
+
+## proposed plan changes (waiting for the human's yes)
+
+- <old line> → <new line> · why:
+
+## friction log (becomes `SPONSOR_NOTES.md` if the event scores feedback)
+
+- <time> · <version> · expected <x> · saw <y> · how to reproduce · effect on the user
+
+## limits and disclosures (each goes where a reader could otherwise draw the wrong conclusion)
+
+- <what's generated, hand-built, precomputed or staged, and where it shows>
 
 ## away mode (only when the human is away)
 

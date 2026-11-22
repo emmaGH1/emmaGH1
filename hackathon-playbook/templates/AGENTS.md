@@ -3,18 +3,12 @@
 > the event spec. every agent session reads this first. keep it true; date every verified fact.
 
 - **event:** <event, track> · **deadline:** <date time UTC> = <WAT>
-- **pitch:** <one plain line: who it's for and what it does for them>
+- **singularity:** <copied from docs/PLAN.md when approved>
 - **sponsor wants:** <one sentence from docs/BRIEF.md>
 
-## north star
+## north star and journey
 
-> the human's. agents never edit this section; the stay-on-course extension puts it in every prompt.
-
-- **the person:** <who, and what they lose without it>
-- **the one journey:** <step 1> → <step 2> → <step 3> → <the result they see>
-- **the sponsor's main job:** <which sponsor product does which step, live>
-- **done means:** these claims pass in `check-live`: <claim 1> · <claim 2> · <claim 3>
-- **not building:** <the cut list, in one line>
+live in `docs/PLAN.md` (the human's). the stay-on-course extension puts them, with the last progress board, into every prompt. don't copy them here.
 
 ## the rubric, mapped to what proves it
 
@@ -46,13 +40,15 @@ sponsor tooling installed: <.agents/skills/... · .mcp.json · llms.txt>
 
 - no mock or seeded data in the core path. a labelled fallback only for a flaky optional dependency.
 - simulate before every write; never touch a private key.
-- every new claim gets raw output in `evidence/`, a row in `JUDGES.md` and a line in `scripts/check-live.mjs`.
-- the landing page renders its content on the server, with no wallet or login gate.
+- progress is `node scripts/status.mjs`. never state a percentage; paste the board.
+- every scored claim gets raw output in `evidence/` and a row in `JUDGES.md`; re-runnable ones a line in `scripts/check-live.mjs`.
+- the judge's path (the public link, logged out, phone width) works with no wallet or login gate.
 
 ## commands
 
 ```bash
-node scripts/check-live.mjs   # live claims, pass/fail
+node scripts/status.mjs       # the progress board (journey checks on the live url)
+node scripts/check-live.mjs   # the judges' live claims, pass/fail
 npm run typecheck && npm run build
 ```
 
