@@ -1,40 +1,45 @@
 # step 5: demo
 
-> capture the first successful run of the journey. cut the film around it. freeze it at 75%.
+> give the viewer a question they can answer from the footage before the narrator answers it. freeze the film at 75%.
 
-judges often decide from the first two minutes (shipaton's official process: screen out entries without a store url, then watch two minutes). the film proves the product works **and** makes someone want it.
+judges often decide from the first two minutes (shipaton: screen out entries without a store url, then watch two minutes). the film proves the product works **and** makes someone want it. the repeated mistake in our films: the viewer hears the answer before they've had a fair chance to see it.
 
-## the default: a voiced product film around the payoff
+## 1. at first success (during the build)
 
-- **real footage only.** the agent drives the real app on the vps (`templates/run-demo.ts`: playwright with `data-demo` marks, a visible cursor, 4k stills for zooms). never motion graphics with no real product in them.
-- **capture early.** the first time the journey passes, record it. that capture is the film's spine, even on a short clock.
-- **the human's voice:** narration in their elevenlabs voice clone (draft in free local tts first), word-synced captions, a designed splash and the wordmark over the action, music cut to the reveal. assembled in hyperframes.
-- **one approval:** the human watches the rough cut on their phone and says yes or what to change. no stills or look gates unless they ask.
-- **minimum** (last hour, or the film is blocked): the capture, a voiceover, a title card and an end card. a working app always gets a video.
+- the first time the sponsor step passes in the real app, **record it**: the run, its source (response, receipt, transaction), the date, and a reset that returns to that state (`?seed=11`, a reset endpoint). this capture is the film's spine.
+- no successful sponsor run, no sponsor shot. a replay of other data proves the replay path, not the sponsor. that's a red board at 25% (step 3), not an editing problem.
 
-## the shape
+## 2. before scripting: the question
 
-| time | on screen |
-|---|---|
-| 0–10s | **the payoff first:** the action and its result, with the one line. (rummage: the drawer slides open and the key is inside; "where would you hide it?") |
-| 10–60s | the one journey, live, real data |
-| 60–90s | what the sponsor supplied, shown where it happened: the response, transaction or inspector view |
-| last 10s | name, url, the sponsor product named |
+write three lines in `docs/PLAN.md` under the proof frame:
 
-the opening differs by entry: a game opens on play, a money tool on the refused or settled move, research on the finding. don't open with a lecture.
+- **the viewer's question:** "which drawer would you open?" · "is it the market, or the token?" · "will the agent keep my line?" · "who keeps topping this up?"
+- **the answers they might give**
+- **the shot that settles it**, readable with no voice and no captions
 
-narrate meaning, not clicks. aim for one moment someone could describe the next day.
+## 3. the cut
 
-## rules
+**question → choice → consequence → sponsor evidence at the point of use → invitation to try.**
 
-- at least half the runtime is the real app working; every number on screen comes from a real run
-- slow real steps get a labelled speed ramp ("4x"); a staged shot (a seeded layout, an advanced clock, an exaggerated exploded view) is labelled where it appears
-- inside the event's limit; with no limit, 90–120 seconds
-- watch it on a phone as a judge: once with sound, once muted
-- upload where the form embeds it (devpost: public youtube or vimeo); keep the file in a github release too
+- **give the viewer a decision.** show the options, pause, then the answer. (rummage: three closed drawers, a beat, the tap. not a key found on the first pull in 3 seconds.)
+- **follow one identifiable thing across every cut:** the same joke, drawer, payment or top-up. add a second case only when the comparison is the answer (pentryo: uni's drop sits near its expected move, inj lands off the line).
+- **film the test that could fail:** the overwrite attempt, a plausible wrong drawer, the sender on a receipt. put the attempt right after the success; no diagram between them.
+- **sponsor evidence against the precise claim**, where it does the job: the generated joint becoming the hiding place, the refusal beside the line it protected, the receipt under the red step.
+- **compose for comparison on a phone:** both states on screen long enough to read. design the result state in the app for the camera; don't pan across a dashboard.
+- **motion graphics need a job:** pose the question, rhyme a pattern until the viewer spots it, or carry a value to where it lands (kobo: the amount travels from the review bubble into the ledger row). cut titles that repeat the narration.
+- **end on the invitation:** the exact link, example or lookup the judge can try. not a feature list, not a broken state.
+
+## 4. finish
+
+- **real product, honest labels.** the agent drives the real app (`templates/run-demo.ts`: playwright, `data-demo` marks, visible cursor, 4k stills). replays, staged shots and speed-ups are labelled where they first matter ("4x · edited recording").
+- **voice:** narration in the human's elevenlabs clone (draft in free local tts), word-synced captions, music cut to the reveal. assembled in hyperframes.
+- **the cold test** (a fresh agent, before the human sees it): play the decisive shot once, voice muted and editorial captions hidden. ask "what changed, and how could you tell?" if the answer has to quote the narrator, recut that shot.
+- **one approval:** the human watches the rough cut on their phone and says yes or what to change.
+- the event's real limit; export, upload where the form embeds it (devpost: public youtube or vimeo), keep the file in a github release, and **check the embed plays signed out**.
+- **minimum** (last hour, or the film is blocked): the capture of the decisive moment, a voiceover, a title card with the question and an end card with the link. a working app always gets a video.
 
 ## camera-ready app (while building)
 
 - `data-demo="..."` on every element the demo and checks touch
-- a reset script or endpoint that returns the app to a known state; seeded links (`?seed=11`) for repeatable layouts
-- important text readable at 1080p and on a phone; the cursor never covers the result
+- a reset and seeded links for repeatable states
+- the result state designed to read at phone size: the object, its previous state and the consequence together

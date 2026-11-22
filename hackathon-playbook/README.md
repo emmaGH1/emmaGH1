@@ -20,7 +20,7 @@ v3 fixed how we build: triage, sponsor-first ideas, a clock, evidence judges can
 | north star in `AGENTS.md`, plan locked | north star + journey in `docs/PLAN.md`; the agent proposes one exact change, the human approves (`--approve`) |
 | extension ran `check-live`, skipped if missing | **extension v4** shows the measured board under every reply, retries only on regressions, reports a missing checker, blocks `--approve` and edits to approved checks; `/status` |
 | readme: proof first, limits last | **readme = the product page:** opens on what the reader gets to do, a banner, a hero loop, one repeatable example, three links; disclosures where they matter; a 7-point cold read on the rendered github page |
-| "craft comes second", four film gates | **a voiced product film around the first successful run** (own voice, captions, splash); one approval |
+| "craft comes second", four film gates | **the film poses one question the footage answers** before the narrator does: question → choice → consequence → sponsor evidence → invitation; the first sponsor success recorded at 25%; a silent cold test of the decisive shot; one approval |
 | every claim in three places; llms.txt always | **one direct proof per scored claim**; llms.txt only when an ai crawler judges; sponsor notes and build log only when scored or required |
 | same reason twice → change the skill | **change a rule only on evidence**; one continuation per event, tracked apart from placing |
 | a tools table in the skill | removed (model routing lives in your own notes) |

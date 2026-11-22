@@ -39,7 +39,7 @@ how it stays honest:
 ## the order of work
 
 - **until the journey passes, work on the first step that isn't passing.** landing page, polish, design and the film wait, unless that step needs them (a start button is part of J1).
-- **25%:** the sponsor step passes in the deployed app. red? send the human one message: what failed, two options (a different sponsor primitive, or a smaller honest promise) and a recommendation. decide within the hour.
+- **25%:** the sponsor step passes in the deployed app. **record that first success at once** (the run, its receipt, the date, a reset to that state): it's the film's spine and the readme's hero (step 5). red? send the human one message: what failed, two options (a different sponsor primitive, or a smaller honest promise) and a recommendation. decide within the hour.
 - **50%:** the whole journey passes on a phone. red? cut until it's green; nothing new starts.
 - **50–75%, better not bigger:** the readme example and hero capture (step 6), the film from the first good run (step 5), the second most important proof, error and empty states, a design pass (step 4), then freeze.
 
