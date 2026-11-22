@@ -129,3 +129,14 @@ Curious how a piece was made? Choose **See how Lux3D built this room** on the ti
 what moved down: hinge and slider counts (to proof), task ids and urdf (to "one piece, end to end" under judges start here), the video-staging notes (labelled where they appear in the film, details in the report), the hand-built picture and floorboard (mentioned where room secrets are described).
 
 the repo itself isn't edited until results are out: judges may check commit dates against the window.
+
+### the films: what six entries taught (nov 22, with astra)
+
+the repeated mistake: **the viewer hears the answer before they've had a fair chance to see it.** polish isn't the problem; telling is.
+
+- **strip (agent-native):** the best singularity we've filmed. at 0:36–0:50 the comic changes around "that crash was my coffee break", which survives word for word: anyone can judge that without reading an error. at 1:20–1:27 claude code tries the overwrite and gets `protected_element` beside the panel. **fix:** cut the 18 seconds of diagram between them; success, then the attempt that could fail, back to back. keep the honest "4x · edited recording" label.
+- **pentryo (ryo):** the best hook ("your token dropped 9%. so did everything else. is it the market, or the token?"), and the spotlight on uni (scary, but near its expected move) against inj (off the line) teaches the rule. **but** ryo never returned a verified success; the replay used binance data and a different calculation. no recut fixes that: it's a red sponsor step at 25%. **fix:** open on uni's real drop and let the viewer place it before "scary, but normal"; put provenance beside the first plotted result.
+- **subsidized state (near, research):** the balance falls and springs back, again and again, until the viewer spots the pattern before being told who pays. the research is the product, so editorial graphics are right. **fix:** attach one readable receipt to one red step; keep the rebuild-from-mainnet command as the closing evidence.
+- **rummage (aholo):** the exploded yellow drawer becoming a hiding place (0:30–0:43) shows the sponsor's articulation at the point of use. but the key is found in 3 seconds on the first drawer opened: no seeking in a seek game, and the middle is a montage of labelled features. **fix:** three closed drawers, a beat to choose, one wrong or empty drawer, then the key; three features at most, each as a consequence in play.
+- **kobo (meta, judged from code; the youtube cut couldn't be fetched):** after save, the name and amount travel from the review bubble into the exact ledger row: motion that lets you follow the money.
+- **offgrid (hermes, script only):** the strongest beat (ask over ussd, the answer arrives by sms, dial back to page it) sat at 1:00–1:15, after `HELP`. lead with it.

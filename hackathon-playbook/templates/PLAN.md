@@ -28,6 +28,10 @@ each row has a check in `checks/journey.mjs`. `scripts/status.mjs` reads this ta
 
 <the one screenshot you hope to capture at the payoff>
 
+- the viewer's question: <"which drawer would you open?">
+- answers they might give: <…>
+- the shot that settles it, with no voice or captions: <…>
+
 ## clock
 
 `status` reads `start` and `deadline` (ISO with offset, e.g. 2026-11-17T09:00+01:00).
