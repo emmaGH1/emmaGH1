@@ -13,6 +13,7 @@ a loss teaches nothing until it's compared with what won.
    - missed a disqualifier
 4. **look inside the winner's repo,** not just its readme: `AGENTS.md`/`CLAUDE.md`, `evidence/`, judges files, scripts. if they did something the playbook doesn't, note it in `cases.md`.
 5. **if it was a lane event:** one line in `lane.md`, and copy core improvements back to `templates/core/`. mark any note used in `problems.md`.
-6. **same reason twice → change `SKILL.md`.** a playbook that never changes after a loss is decoration.
+6. **change a rule only on evidence:** what a winner's repo, the judges' feedback or the event's published process shows, not a guess about why we lost. a guess goes in `results.md` as a hypothesis. that's how v3 grew to 6,600 words.
 7. **if you placed:** one line on what worked, in `cases.md`.
 8. **ask for feedback** when the event offers it (draft the message; the human sends it).
+9. **one continuation, tracked apart from placing:** if anyone showed interest, pick one: a sponsor sample or showcase, a grant or accelerator round, or carrying the audience or unsolved problem into the next event. one line in `results.md`.

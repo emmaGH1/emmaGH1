@@ -1,6 +1,6 @@
 # for judges and automated reviewers
 
-every claim <name> makes, where it lives in the code, the test that checks it, and the command that shows it. commands run from a fresh clone.
+every scored claim <name> makes, where it lives in the code, the test that checks it, and the command that shows it. commands run from a fresh clone. what the sponsor supplied and what we added are kept apart.
 
 ## one command for the live claims
 

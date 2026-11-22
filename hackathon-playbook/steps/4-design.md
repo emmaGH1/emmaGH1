@@ -18,6 +18,7 @@
 - one visual motif that comes from what the product does
 - one or two type families, chosen for this product
 - if the human is around: render the first screen in 3 directions as screenshots and let them pick (a minute for them). if not: pick the one that fits the 3 words.
+- **feels like a real product (or game):** the acceptance check is the cold test, not approving a look. a fresh agent shown a muted clip of the first screen must say what it would do next. if it only praises the rendering, the screen doesn't invite play or use yet.
 - write the locked direction in `AGENTS.md` so every session uses it
 
 ## landing page = the poster
@@ -38,5 +39,5 @@
 
 - a wordmark with one custom detail taken from the motif, hand-written svg
 - check it at 16px, on light and dark
-- export `logo.svg`, favicon, `og.png` (1200×630: logo plus the one-line promise)
+- export `logo.svg` and a favicon. for the readme: `docs/img/banner.png` (about 1600×400: the wordmark over a real frame of the product) and the film thumbnail. `og.png` only if the site gets shared.
 - no sparkles, brains, robot heads, hexagons, globes, letters in gradient squares, or more than two colours
